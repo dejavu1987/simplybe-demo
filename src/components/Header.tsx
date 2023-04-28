@@ -28,10 +28,6 @@ const queryHeader = () => {
             uid
           }
         }
-        notification_bar {
-          show_announcement
-          announcement_text
-        }
       }
     }
   `
@@ -78,11 +74,6 @@ const Header = ({ dispatch }: DispatchData) => {
 
   return (
     <header className="header">
-      <div className="note-div" {...getHeader.notification_bar.$?.announcement_text}>
-        {getHeader.notification_bar.show_announcement &&
-          typeof getHeader.notification_bar.announcement_text === "string" &&
-          parse(getHeader.notification_bar.announcement_text)}
-      </div>
       <div className="max-width header-div">
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
