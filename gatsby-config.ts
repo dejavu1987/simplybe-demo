@@ -25,6 +25,7 @@ const hostedUrl = CONTENTSTACK_HOSTED_URL || "http://localhost:9000"
 const cdnHost = CONTENTSTACK_API_HOST?.replace(/api/g, "cdn")
 
 module.exports = {
+  graphqlTypegen: true,
   siteMetadata: {
     title: "Gatsby Sample App",
     description: "This is a sample app build using Gatsby and Contentstack",

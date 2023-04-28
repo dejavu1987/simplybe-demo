@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import parse from "html-react-parser"
 import { connect } from "react-redux"
 import Tooltip from "./ToolTip"
-import jsonIcon from "../images/json.svg"
 import { getHeaderRes, jsonToHtmlParse, getAllEntries } from "../helper/index.d"
 import { onEntryChange } from "../live-preview-sdk/index.d"
 import { actionHeader } from "../store/actions/state.action"
-import { DispatchData, Entry, HeaderProps, Menu } from "../typescript/layout";
+import { DispatchData, Entry, HeaderProps, Menu } from "../typescript/layout"
 
 const queryHeader = () => {
   const query = graphql`
-    query {
+    query HeaderQuery {
       contentstackHeader {
         title
         uid
@@ -28,10 +26,14 @@ const queryHeader = () => {
             uid
           }
         }
+        secondary_menu {
+          label
+          url
+        }
       }
     }
   `
-  return useStaticQuery(query)
+  return useStaticQuery<Queries.HeaderQueryQuery>(query)
 }
 
 const Header = ({ dispatch }: DispatchData) => {
@@ -44,7 +46,7 @@ const Header = ({ dispatch }: DispatchData) => {
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach(entry => {
         const hFound = newHeader?.navigation_menu.find(
-          (navLink) => navLink.label === entry.title
+          navLink => navLink.label === entry.title
         )
         if (!hFound) {
           newHeader.navigation_menu?.push({
@@ -74,6 +76,17 @@ const Header = ({ dispatch }: DispatchData) => {
 
   return (
     <header className="header">
+      <div>
+        <nav>
+          <ul>
+            {/* {getHeader.secondary_menu.map((menu: any) => (
+              <li>
+                <a href={menu.url}>{menu.label}</a>
+              </li>
+            ))} */}
+          </ul>
+        </nav>
+      </div>
       <div className="max-width header-div">
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
@@ -117,7 +130,13 @@ const Header = ({ dispatch }: DispatchData) => {
           </ul>
         </nav>
         <div className="json-preview">
-          <Tooltip content="JSON Preview" direction='top' dynamic={false} delay={200} status={0}>
+          <Tooltip
+            content="JSON Preview"
+            direction="top"
+            dynamic={false}
+            delay={200}
+            status={0}
+          >
             <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <img src={jsonIcon} alt="JSON Preview icon" />
             </span>
