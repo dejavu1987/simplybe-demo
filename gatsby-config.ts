@@ -1,9 +1,9 @@
 // Module dependency
 
-require('ts-node').register({
+require("ts-node").register({
   compilerOptions: {
-      module: 'commonjs',
-      target: 'es2017',
+    module: "commonjs",
+    target: "es2017",
   },
 })
 
@@ -19,7 +19,7 @@ let {
   CONTENTSTACK_HOSTED_URL,
 } = process.env
 
-CONTENTSTACK_API_HOST = CONTENTSTACK_API_HOST.replace(/api/g, "cdn")
+CONTENTSTACK_API_HOST = CONTENTSTACK_API_HOST?.replace(/api/g, "cdn")
 
 const hostedUrl = CONTENTSTACK_HOSTED_URL || "http://localhost:9000"
 const cdnHost = CONTENTSTACK_API_HOST?.replace(/api/g, "cdn")
