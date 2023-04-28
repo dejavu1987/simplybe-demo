@@ -351,6 +351,13 @@ footer a {
 
 /* New Custom */
 
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
 .hero-banner {
   display: flex;
   justify-content: flex-start;
@@ -377,12 +384,29 @@ footer a {
 }
 
 .home-advisor-section {
-  background: #fff;
+  background: #f7f7f7;
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.home-advisor-section img {
+  width: 100%;
+}
+
+.home-advisor-section p {
+  font-weight: 300;
+  color: #455560;
+  line-height: 1.32;
+}
+
+.home-advisor-section .wrapper {
   display: flex;
   justify-content: space-evenly;
-  text-align: center;
-  margin: 63px;
-  flex-wrap: wrap;
+}
+
+.home-advisor-section .wrapper > * {
+  padding: 0 30px;
+  width: 50%;
 }
 
 .member-section {
@@ -395,7 +419,7 @@ footer a {
 }
 
 .member-main-section {
-  background: #f7f7f7;
+  background: #fff;
   margin: auto;
   padding: 34px;
 }
@@ -858,7 +882,7 @@ footer a {
 
   .btn {
     border: none;
-    display: block;
+    display: inline-block;
     text-align: center;
     font-size: 12px;
     line-height: 18px;
@@ -880,14 +904,15 @@ footer a {
     flex-wrap: wrap;
   }
 
-  .home-advisor-section {
-    background: #fff;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: left;
-    padding: 28px;
-    margin: 0;
-    flex-wrap: wrap-reverse;
+
+
+  .home-advisor-section .wrapper {
+    flex-direction: column;
+  }
+
+  .home-advisor-section .wrapper > * {
+    margin: 20px 0;
+    width: 100%;
   }
 
   .blog-page-content {
@@ -931,10 +956,7 @@ footer a {
     width: 100%;
   }
 
-  .home-advisor-section>img {
-    max-width: 100%;
-    margin-top: 40px;
-  }
+
 
   .featured-blog {
     width: 90%;
@@ -1134,20 +1156,6 @@ footer a {
   .home-content {
     width: 50%;
     margin-top: 12px;
-  }
-
-
-  .home-advisor-section {
-    background: #fff;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    margin: 80px 63px 63px 63px;
-    flex-wrap: nowrap;
-  }
-
-  .home-advisor-section>img {
-    width: 50%;
   }
 
   .member-section {

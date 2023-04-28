@@ -50,20 +50,24 @@ const Section = ({ data }: BucketProps) => {
 
   function imageContent(dataImg: DataImg, index:string) {
     return (
-      <img
-        {...dataImg.section.image.$?.url}
-        src={dataImg.section.image.url}
-        alt="section-image"
-        key={index}
-      />
+      <div>
+        <img
+          {...dataImg.section.image.$?.url}
+          src={dataImg.section.image.url}
+          alt="section-image"
+          key={index}
+        />
+      </div>
     )
   }
 
   return (
     <div className="home-advisor-section">
+      <div className="wrapper">
       {data.section.image_alignment === "Left"
         ? [imageContent(data, "left-1"), contentSection(data, "left-2")]
         : [contentSection(data, "right-1"), imageContent(data, "right-2")]}
+      </div>
     </div>
   )
 }

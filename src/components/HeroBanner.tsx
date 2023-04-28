@@ -20,6 +20,7 @@ const HeroBanner = (props: BannerProps) => {
         backgroundImage: hero_banner.banner_image ? `url(${hero_banner.banner_image.url})` : '',
       }}
     >
+      <div className="wrapper">
       <div className="home-content" style={{ color: hero_banner.text_color }}>
         {hero_banner.banner_title && (
           <h1 className="hero-title" {...hero_banner.$?.banner_title}>
@@ -48,6 +49,7 @@ const HeroBanner = (props: BannerProps) => {
         ) : (
           ""
         )}
+      </div>
       </div>
     </div>
   )
