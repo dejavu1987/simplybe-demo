@@ -14,61 +14,65 @@ type BucketProps = {
 const SectionBucket = ({ data: { section_with_buckets } }: BucketProps) => {
   return (
     <div className="member-main-section">
-      <div className="member-head">
-        {section_with_buckets.title_h2 ? (
-          <h2 {...section_with_buckets.$?.title_h2}>
-            {section_with_buckets.title_h2}
-          </h2>
-        ) : (
-          ""
-        )}
-        {section_with_buckets.description ? (
-          <p {...section_with_buckets.$?.description}>
-            {section_with_buckets.description}
-          </p>
-        ) : (
-          ""
-        )}
-      </div>
-      <div className="member-section">
-        {section_with_buckets.buckets.map((bucket, index) => {
-          return (
-            <div className="content-section" key={index}>
-              {bucket.icon && (
-                <img
-                  {...bucket.icon.$?.url}
-                  src={bucket.icon.url}
-                  alt="bucket icon"
-                />
-              )}
-              {bucket.title_h3 ? (
-                <h3 {...bucket.$?.title_h3}>{bucket.title_h3}</h3>
-              ) : (
-                ""
-              )}
-              {typeof bucket.description === "string" && (
-                <div {...bucket.$?.description}>
-                  {" "}
-                  {parser(bucket.description)}
+      <div className="wrapper">
+        <div className="member-head">
+          {section_with_buckets.title_h2 ? (
+            <h2 {...section_with_buckets.$?.title_h2}>
+              {section_with_buckets.title_h2}
+            </h2>
+          ) : (
+            ""
+          )}
+          {section_with_buckets.description ? (
+            <p {...section_with_buckets.$?.description}>
+              {section_with_buckets.description}
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="member-section">
+          {section_with_buckets.buckets.map((bucket, index) => {
+            return (
+              <div className="content-section" key={index}>
+                <div className="content-section__title">
+                  {bucket.icon && (
+                    <img
+                      {...bucket.icon.$?.url}
+                      src={bucket.icon.url}
+                      alt="bucket icon"
+                    />
+                  )}
+                  {bucket.title_h3 ? (
+                    <h3 {...bucket.$?.title_h3}>{bucket.title_h3}</h3>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              )}
-              {bucket.call_to_action.title ? (
-                <Link
-                  to={
-                    bucket.call_to_action.href
-                      ? bucket.call_to_action.href
-                      : "#"
-                  }
-                  {...bucket.call_to_action.$?.title}
-                >
-                  {`${bucket.call_to_action.title} -->`}
-                </Link>
-              ) : (
-                ""
-              )}
-            </div>
-          )
-        })}
+                {typeof bucket.description === "string" && (
+                  <div {...bucket.$?.description}>
+                    {" "}
+                    {parser(bucket.description)}
+                  </div>
+                )}
+                {bucket.call_to_action.title ? (
+                  <Link
+                    to={
+                      bucket.call_to_action.href
+                        ? bucket.call_to_action.href
+                        : "#"
+                    }
+                    {...bucket.call_to_action.$?.title}
+                  >
+                    {`${bucket.call_to_action.title} -->`}
+                  </Link>
+                ) : (
+                  ""
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
