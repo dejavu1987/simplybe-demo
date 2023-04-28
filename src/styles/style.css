@@ -14,8 +14,11 @@ h1, h2, h3, h4 {
 }
 
 body h1 {
-  font-size: 44px;
-  line-height: 56px;
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  margin-bottom: 20px;
 }
 
 body h2 {
@@ -201,15 +204,16 @@ footer a {
 }
 
 .primary-btn {
-  background: #715cdd;
+  background:  #0073ae;
+  border: 1px solid #0073ae;
   color: #fff;
   cursor: pointer;
+  transition: background-color .3s ease-out;
 }
 
 .primary-btn:hover {
-  background: #715cdd;
+  background: #0095e1;
   color: #fff;
-  font-weight: 600;
 }
 
 .secondary-btn {
@@ -325,11 +329,11 @@ footer a {
 /* home page */
 
 .hero-description {
+  color: #fff;
   font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.3px;
+  font-weight: 300;
+  line-height: 1.32;
   margin-bottom: 40px;
-  color: #ffffff;
 }
 
 .blogpost-readmore {
@@ -349,18 +353,23 @@ footer a {
 
 .hero-banner {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   text-align: center;
-  background: #715cdd;
-  padding: 63px;
+  background-size: cover;
+  background-position: center;
+  padding: 80px;
   color: #fff;
   flex-wrap: wrap;
 }
 
+.hero-banner .home-content {
+  /* position: absolute; */
+  padding: 40px;
+  width: 50%;
+}
+
 .hero-content, .home-content {
   text-align: left;
-  margin-top: 65px;
-  width: 475px;
 }
 
 .home-content p {
@@ -865,10 +874,8 @@ footer a {
 
   .hero-banner {
     display: flex;
-    justify-content: space-evenly;
     text-align: left;
     background: #715cdd;
-    padding: 28px;
     color: #fff;
     flex-wrap: wrap;
   }
@@ -917,13 +924,11 @@ footer a {
 
   .hero-banner>img {
     max-width: 100%;
-    margin-top: 40px;
   }
 
-  .home-content {
-    text-align: left;
-    margin-top: 9px;
-    width: 475px;
+  .hero-banner .home-content {
+    padding: 0;
+    width: 100%;
   }
 
   .home-advisor-section>img {
@@ -1090,10 +1095,8 @@ footer a {
   }
 
   body h1 {
-    font-weight: bold;
     font-size: 28px;
     line-height: 34px;
-    letter-spacing: 0.1px;
   }
 
   body h2 {
@@ -1115,10 +1118,8 @@ footer a {
 
   .hero-banner {
     display: flex;
-    justify-content: space-evenly;
     text-align: center;
     background: #715cdd;
-    padding: 63px;
     color: #fff;
     flex-wrap: nowrap;
   }
@@ -1135,10 +1136,6 @@ footer a {
     margin-top: 12px;
   }
 
-  .hero-banner>img {
-    width: 50%;
-    margin: 27px 0px 0px 0px;
-  }
 
   .home-advisor-section {
     background: #fff;

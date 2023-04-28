@@ -16,7 +16,8 @@ const HeroBanner = (props: BannerProps) => {
     <div
       className="hero-banner"
       style={{
-        background: hero_banner.bg_color ? hero_banner.bg_color : "",
+        backgroundColor: hero_banner.bg_color ? hero_banner.bg_color : "",
+        backgroundImage: hero_banner.banner_image ? `url(${hero_banner.banner_image.url})` : '',
       }}
     >
       <div className="home-content" style={{ color: hero_banner.text_color }}>
@@ -39,7 +40,7 @@ const HeroBanner = (props: BannerProps) => {
         {hero_banner.call_to_action.title && hero_banner.call_to_action.href ? (
           <Link
             to={hero_banner.call_to_action.href}
-            className="btn tertiary-btn"
+            className="btn primary-btn"
             {...hero_banner.call_to_action.$?.title}
           >
             {hero_banner.call_to_action.title}
@@ -48,15 +49,6 @@ const HeroBanner = (props: BannerProps) => {
           ""
         )}
       </div>
-      {hero_banner.banner_image ? (
-        <img
-          alt="hero-banner-image"
-          {...hero_banner.banner_image.$?.url}
-          src={hero_banner.banner_image.url}
-        />
-      ) : (
-        ""
-      )}
     </div>
   )
 }
