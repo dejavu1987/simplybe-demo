@@ -3,8 +3,12 @@
  * The following code will display a confirm prompt asking the user whether they
  * would like to refresh the page when an update is found.
  */
-import wrapWithProvider from "./wrap-with-provider"
-export const wrapRootElement = wrapWithProvider
+import React from "react"
+import { DevToolProvider } from "./src/components/DevTools"
+
+export const wrapRootElement = ({ element }) => {
+  return <DevToolProvider> {element} </DevToolProvider>
+}
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

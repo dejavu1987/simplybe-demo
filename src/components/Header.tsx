@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { connect } from "react-redux"
 import Tooltip from "./ToolTip"
 import jsonIcon from "../images/json.svg"
-import { getHeaderRes, jsonToHtmlParse, getAllEntries } from "../helper/index.d"
+import { getHeaderRes, jsonToHtmlParse } from "../helper/index.d"
 import { onEntryChange } from "../live-preview-sdk/index.d"
-import { actionHeader } from "../store/actions/state.action"
-import { DispatchData, Entry, HeaderProps, Menu } from "../typescript/layout"
+import DevTools, { useDevTool } from "./DevTools"
 
 const queryHeader = () => {
   const query = graphql`
@@ -37,42 +35,23 @@ const queryHeader = () => {
   return useStaticQuery<Queries.HeaderQueryQuery>(query)
 }
 
-const Header = ({ dispatch }: DispatchData) => {
+const Header = () => {
   const { contentstackHeader } = queryHeader()
   jsonToHtmlParse(contentstackHeader)
   const [getHeader, setHeader] = useState(contentstackHeader)
+  const { devToolData, updateDevTool } = useDevTool()
 
-  function buildNavigation(ent: Entry, head: HeaderProps) {
-    let newHeader = { ...head }
-    if (ent.length !== newHeader.navigation_menu.length) {
-      ent.forEach(entry => {
-        const hFound = newHeader?.navigation_menu.find(
-          navLink => navLink.label === entry.title
-        )
-        if (!hFound) {
-          newHeader.navigation_menu?.push({
-            label: entry.title,
-            page_reference: [
-              { title: entry.title, url: entry.url, $: entry.$ },
-            ],
-            $: {},
-          })
-        }
-      })
-    }
-    return newHeader
-  }
-
-  async function getHeaderData() {
+  async function updateHeaderData() {
     const headerRes = await getHeaderRes()
-    const allEntries = await getAllEntries()
-    const nHeader = buildNavigation(allEntries, headerRes)
-    setHeader(nHeader)
-    dispatch(actionHeader(nHeader))
+    setHeader(headerRes)
   }
 
   useEffect(() => {
-    onEntryChange(() => getHeaderData())
+    updateDevTool && updateDevTool({ ...devToolData, header: getHeader })
+  }, [getHeader, updateDevTool])
+
+  useEffect(() => {
+    onEntryChange(() => updateHeaderData())
   }, [onEntryChange])
 
   return (
@@ -80,11 +59,11 @@ const Header = ({ dispatch }: DispatchData) => {
       <div>
         <nav>
           <ul>
-            {/* {getHeader.secondary_menu.map((menu: any) => (
+            {getHeader?.secondary_menu?.map((menu: any) => (
               <li>
                 <a href={menu.url}>{menu.label}</a>
               </li>
-            ))} */}
+            ))}
           </ul>
         </nav>
       </div>
@@ -93,10 +72,9 @@ const Header = ({ dispatch }: DispatchData) => {
           <Link to="/" className="logo-tag" title="Contentstack">
             <img
               className="logo"
-              {...getHeader.logo.$?.url}
-              src={getHeader.logo?.url}
-              alt={getHeader.title}
-              title={getHeader.title}
+              src={getHeader?.logo?.url || "/images/logo.png"}
+              alt={getHeader?.title}
+              title={getHeader?.title}
             />
           </Link>
         </div>
@@ -107,10 +85,11 @@ const Header = ({ dispatch }: DispatchData) => {
 
         <nav className="menu">
           <ul className="nav-ul header-ul">
-            {getHeader.navigation_menu.map((menu: Menu, index: number) => {
+            {getHeader?.navigation_menu?.map((menu, index: number) => {
+              if (!menu) return ""
               return (
-                <li className="nav-li" key={index} {...menu.$?.label}>
-                  {menu.label === "Home" ? (
+                <li className="nav-li" key={menu.label}>
+                  {menu?.label === "Home" ? (
                     <Link
                       to={`${menu.page_reference[0]?.url}`}
                       activeClassName="active"
@@ -130,6 +109,7 @@ const Header = ({ dispatch }: DispatchData) => {
             })}
           </ul>
         </nav>
+
         <div className="json-preview">
           <Tooltip
             content="JSON Preview"
@@ -148,4 +128,4 @@ const Header = ({ dispatch }: DispatchData) => {
   )
 }
 
-export default connect()(Header)
+export default Header

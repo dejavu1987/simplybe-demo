@@ -1,11 +1,11 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import React, { useState, useEffect } from "react"
 import parser from "html-react-parser"
-import { connect } from "react-redux"
-import { actionFooter } from "../store/actions/state.action"
 import { onEntryChange } from "../live-preview-sdk/index.d"
-import { getFooterRes, getAllEntries, jsonToHtmlParse } from "../helper/index.d"
-import { DispatchData, Entry, FooterProps, Links, Social, Menu } from "../typescript/layout";
+import { getFooterRes, jsonToHtmlParse } from "../helper/index.d"
+import { Social, Menu } from "../typescript/layout"
+
+import DevTools, { useDevTool } from "./DevTools"
 
 const queryLayout = () => {
   const data = useStaticQuery(graphql`
@@ -40,44 +40,29 @@ const queryLayout = () => {
   return data
 }
 
-const Footer = ({ dispatch }: DispatchData) => {
+const Footer = () => {
   const { contentstackFooter } = queryLayout()
   jsonToHtmlParse(contentstackFooter)
   const [getFooter, setFooter] = useState(contentstackFooter)
+  const { devToolData, updateDevTool } = useDevTool()
 
-  function buildNavigation(ent: Entry, footer: FooterProps) {
-    let newFooter = { ...footer }
-    if (ent.length !== newFooter.navigation.link.length) {
-      ent.forEach(entry => {
-        const fFound = newFooter?.navigation.link.find(
-          (nlink: Links) => nlink.title === entry.title
-        )
-        if (!fFound) {
-          newFooter.navigation.link?.push({
-            title: entry.title,
-            href: entry.url,
-            $: entry.$,
-          })
-        }
-      })
-    }
-    return newFooter
-  }
-
-  async function getFooterData() {
+  async function updateFooterData() {
     const footerRes = await getFooterRes()
-    const allEntries = await getAllEntries()
-    const nFooter = buildNavigation(allEntries, footerRes)
-    setFooter(nFooter)
-    dispatch(actionFooter(nFooter))
+    setFooter(footerRes)
+    updateDevTool && updateDevTool({ ...devToolData, footer: footerRes })
   }
 
   useEffect(() => {
-    onEntryChange(() => getFooterData())
+    updateDevTool && updateDevTool({ ...devToolData, footer: getFooter })
+  }, [getFooter, updateDevTool])
+
+  useEffect(() => {
+    onEntryChange(() => updateFooterData())
   }, [onEntryChange])
 
   return (
     <footer>
+      <DevTools response={devToolData} />
       <div className="max-width footer-div">
         <div className="col-quarter">
           <Link to="/" className="logo-tag">
@@ -105,22 +90,20 @@ const Footer = ({ dispatch }: DispatchData) => {
         </div>
         <div className="col-quarter social-link">
           <div className="social-nav">
-            {getFooter.social.social_share.map((social: Social, index: number) => {
-              return (
-                <a
-                  href={social.link?.href}
-                  title={social.link.title.toLowerCase()}
-                  key={index}
-                  className="footer-social-links"
-                >
-                  <img
-                    {...social.icon.$?.url}
-                    src={social.icon?.url}
-                    alt="social-icon"
-                  />
-                </a>
-              )
-            })}
+            {getFooter.social.social_share.map(
+              (social: Social, index: number) => {
+                return (
+                  <a
+                    href={social.link?.href}
+                    title={social.link.title.toLowerCase()}
+                    key={index}
+                    className="footer-social-links"
+                  >
+                    <img src={social.icon?.url} alt="social-icon" />
+                  </a>
+                )
+              }
+            )}
           </div>
         </div>
       </div>
@@ -135,4 +118,4 @@ const Footer = ({ dispatch }: DispatchData) => {
   )
 }
 
-export default connect()(Footer)
+export default Footer

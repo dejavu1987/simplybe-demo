@@ -1,10 +1,38 @@
-import React, { useState, useEffect } from "react"
+import React, {
+  useState,
+  useEffect,
+  FunctionComponent,
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+} from "react"
 import Tooltip from "./ToolTip"
 import copyIcon from "../images/copy.svg"
 
+export const DevToolContext = createContext<{
+  devToolData?: any
+  updateDevTool?: Dispatch<SetStateAction<{}>>
+}>({})
+
+export const DevToolProvider = ({ children }: any) => {
+  const [devToolData, setDevTool] = useState({})
+
+  return (
+    <DevToolContext.Provider value={{ devToolData, updateDevTool: setDevTool }}>
+      {children}
+    </DevToolContext.Provider>
+  )
+}
+
+export const useDevTool = () => {
+  const { devToolData, updateDevTool } = useContext(DevToolContext)
+  return { devToolData, updateDevTool }
+}
+
 const ReactJson = React.lazy(() => import("react-json-view"))
 
-const DevTools = ({ response }: any) => {
+const DevTools: FunctionComponent<{ response: any }> = ({ response }) => {
   const isSSR = typeof window === "undefined"
   const [forceUpdate, setForceUpdate] = useState(0)
 

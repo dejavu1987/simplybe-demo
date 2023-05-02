@@ -26,7 +26,7 @@ const Home = ({ data: { contentstackPage } }: PageProps) => {
   }, [])
 
   return (
-    <Layout pageComponent={getEntry}>
+    <Layout>
       <SEO title={getEntry.title} />
       {getEntry.page_components && (
         <RenderComponents

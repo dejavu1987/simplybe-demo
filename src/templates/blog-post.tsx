@@ -10,9 +10,13 @@ import ArchiveRelative from "../components/ArchiveRelative"
 import RenderComponents from "../components/RenderComponents"
 import { getPageRes, getBlogPostRes, jsonToHtmlParse } from "../helper/index.d"
 import { PageProps } from "../typescript/template"
+import { useDevTool } from "../components/DevTools"
 
-const blogPost = ({ data: { contentstackBlogPost, contentstackPage } }: PageProps) => {
+const blogPost = ({
+  data: { contentstackBlogPost, contentstackPage },
+}: PageProps) => {
   const { pathname } = useLocation()
+  const { devToolData, updateDevTool } = useDevTool()
   jsonToHtmlParse(contentstackBlogPost)
 
   const [getEntry, setEntry] = useState({
@@ -34,8 +38,18 @@ const blogPost = ({ data: { contentstackBlogPost, contentstackPage } }: PageProp
   useEffect(() => {
     onEntryChange(() => fetchData())
   }, [contentstackBlogPost, contentstackPage])
+
+  useEffect(() => {
+    updateDevTool &&
+      updateDevTool({
+        ...devToolData,
+        banner: getEntry.banner,
+        post: getEntry.post,
+      })
+  }, [updateDevTool, getEntry])
+
   return (
-    <Layout blogPost={getEntry.post} banner={getEntry.banner}>
+    <Layout>
       <SEO title={getEntry.post.title} />
       <RenderComponents
         components={getEntry.banner.page_components}
@@ -44,6 +58,7 @@ const blogPost = ({ data: { contentstackBlogPost, contentstackPage } }: PageProp
         entryUid={getEntry.banner.uid}
         locale={getEntry.banner.locale}
       />
+
       <div className="blog-container">
         <div className="blog-detail">
           <h2 {...getEntry.post.$?.title}>
@@ -61,15 +76,11 @@ const blogPost = ({ data: { contentstackBlogPost, contentstackPage } }: PageProp
         </div>
         <div className="blog-column-right">
           <div className="related-post">
-            {getEntry.banner.page_components[2].widget && (
-              <h2 {...getEntry.banner.page_components[2]?.widget.$?.title_h2}>
-                {getEntry.banner.page_components[2].widget.title_h2}
-              </h2>
+            {getEntry.banner.page_components[2]?.widget && (
+              <h2>{getEntry.banner.page_components[2].widget.title_h2}</h2>
             )}
             <ArchiveRelative
-              data={
-                getEntry.post.related_post && (getEntry.post.related_post)
-              }
+              data={getEntry.post.related_post && getEntry.post.related_post}
             />
           </div>
         </div>
