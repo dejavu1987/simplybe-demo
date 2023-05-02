@@ -6,11 +6,12 @@ import RenderComponents from "../components/RenderComponents"
 import { onEntryChange } from "../live-preview-sdk/index.d"
 import { getPageRes, jsonToHtmlParse } from "../helper/index.d"
 import { PageProps } from "../typescript/template"
+import { useDevTool } from "../components/DevTools"
 
 const Home = ({ data: { contentstackPage } }: PageProps) => {
   jsonToHtmlParse(contentstackPage)
   const [getEntry, setEntry] = useState(contentstackPage)
-
+  const { devToolData, updateDevTool } = useDevTool()
   async function fetchData() {
     try {
       const entryRes = await getPageRes("/")
@@ -20,6 +21,10 @@ const Home = ({ data: { contentstackPage } }: PageProps) => {
       console.error(error)
     }
   }
+
+  useEffect(() => {
+    updateDevTool && updateDevTool({ ...devToolData, page: getEntry })
+  }, [updateDevTool, getEntry])
 
   useEffect(() => {
     onEntryChange(() => fetchData())

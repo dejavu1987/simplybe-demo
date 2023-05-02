@@ -7,11 +7,13 @@ import { onEntryChange } from "../live-preview-sdk/index.d"
 import { getPageRes, jsonToHtmlParse } from "../helper/index.d"
 import RenderComponents from "../components/RenderComponents"
 import { PageProps } from "../typescript/template"
+import { useDevTool } from "../components/DevTools"
 
 const Page = ({ data: { contentstackPage } }: PageProps) => {
   const { pathname } = useLocation()
   jsonToHtmlParse(contentstackPage)
   const [getEntry, setEntry] = useState(contentstackPage)
+  const { devToolData, updateDevTool } = useDevTool()
 
   async function fetchData() {
     try {
@@ -26,8 +28,12 @@ const Page = ({ data: { contentstackPage } }: PageProps) => {
     onEntryChange(() => fetchData())
   }, [])
 
+  useEffect(() => {
+    updateDevTool && updateDevTool({ ...devToolData, page: getEntry })
+  }, [updateDevTool, getEntry])
+
   return (
-    <Layout pageComponent={getEntry}>
+    <Layout>
       <SEO title={getEntry.title} />
       <div className="about">
         {getEntry.page_components && (
