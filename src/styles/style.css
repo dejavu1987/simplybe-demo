@@ -331,8 +331,8 @@ footer a {
   flex-wrap: wrap;
 }
 
-.hero-banner .home-content {
-  /* position: absolute; */
+.hero-banner .hero-inner {
+  text-align: left;
   padding: 40px;
   width: 50%;
 }
@@ -340,6 +340,8 @@ footer a {
 .hero-content,
 .home-content {
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .home-content p {
@@ -1082,6 +1084,10 @@ footer a {
     color: #444444;
   }
 
+  .content-section {
+    width: 100%;
+  }
+
   .btn {
     border: none;
     font-size: 14px;
@@ -1140,10 +1146,9 @@ footer a {
   }
 
   .member-section {
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
     padding: 27px;
-    text-align: center;
+    text-align: left;
     margin-top: 43px;
     flex-wrap: nowrap;
   }
