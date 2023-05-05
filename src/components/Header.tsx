@@ -56,8 +56,8 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div>
-        <nav>
+      <nav className="header__secondary-nav">
+        <div className="max-width">
           <ul>
             {getHeader?.secondary_menu?.map((menu: any) => (
               <li>
@@ -65,8 +65,9 @@ const Header = () => {
               </li>
             ))}
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
+
       <div className="max-width header-div">
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
