@@ -2966,6 +2966,28 @@ type Contentstack_pageFieldsEnum =
   | 'internal.type'
   | 'locale'
   | 'page_components'
+  | 'page_components.cards_slider.cards'
+  | 'page_components.cards_slider.cards._version'
+  | 'page_components.cards_slider.cards.author'
+  | 'page_components.cards_slider.cards.body'
+  | 'page_components.cards_slider.cards.children'
+  | 'page_components.cards_slider.cards.created_at'
+  | 'page_components.cards_slider.cards.created_by'
+  | 'page_components.cards_slider.cards.date'
+  | 'page_components.cards_slider.cards.id'
+  | 'page_components.cards_slider.cards.is_archived'
+  | 'page_components.cards_slider.cards.locale'
+  | 'page_components.cards_slider.cards.related_post'
+  | 'page_components.cards_slider.cards.title'
+  | 'page_components.cards_slider.cards.type'
+  | 'page_components.cards_slider.cards.uid'
+  | 'page_components.cards_slider.cards.updated_at'
+  | 'page_components.cards_slider.cards.updated_by'
+  | 'page_components.cards_slider.cards.url'
+  | 'page_components.cards_slider.jump_to_link.href'
+  | 'page_components.cards_slider.jump_to_link.title'
+  | 'page_components.cards_slider.jump_to_link.uuid'
+  | 'page_components.cards_slider.title'
   | 'page_components.contact_details.address'
   | 'page_components.contact_details.email'
   | 'page_components.contact_details.phone'
@@ -3189,6 +3211,7 @@ type Contentstack_pageSortInput = {
 };
 
 type Contentstack_page_page_components = {
+  readonly cards_slider: Maybe<Contentstack_page_page_componentscards_slider>;
   readonly contact_details: Maybe<Contentstack_page_page_componentscontact_details>;
   readonly enquiry_block: Maybe<Contentstack_page_page_componentsenquiry_block>;
   readonly from_blog: Maybe<Contentstack_page_page_componentsfrom_blog>;
@@ -3202,6 +3225,7 @@ type Contentstack_page_page_components = {
 };
 
 type Contentstack_page_page_componentsFilterInput = {
+  readonly cards_slider: InputMaybe<Contentstack_page_page_componentscards_sliderFilterInput>;
   readonly contact_details: InputMaybe<Contentstack_page_page_componentscontact_detailsFilterInput>;
   readonly enquiry_block: InputMaybe<Contentstack_page_page_componentsenquiry_blockFilterInput>;
   readonly from_blog: InputMaybe<Contentstack_page_page_componentsfrom_blogFilterInput>;
@@ -3216,6 +3240,18 @@ type Contentstack_page_page_componentsFilterInput = {
 
 type Contentstack_page_page_componentsFilterListInput = {
   readonly elemMatch: InputMaybe<Contentstack_page_page_componentsFilterInput>;
+};
+
+type Contentstack_page_page_componentscards_slider = {
+  readonly cards: ReadonlyArray<Maybe<Contentstack_blog_post>>;
+  readonly jump_to_link: Maybe<linktype>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type Contentstack_page_page_componentscards_sliderFilterInput = {
+  readonly cards: InputMaybe<Contentstack_blog_postFilterListInput>;
+  readonly jump_to_link: InputMaybe<linktypeFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_page_page_componentscontact_details = {
@@ -6688,6 +6724,11 @@ type HeaderQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type HeaderQueryQuery = { readonly contentstackHeader: { readonly title: string, readonly uid: string | null, readonly logo: { readonly uid: string | null, readonly url: string | null, readonly filename: string | null }, readonly navigation_menu: ReadonlyArray<{ readonly label: string | null, readonly page_reference: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly uid: string | null } | null> } | null> | null, readonly secondary_menu: ReadonlyArray<{ readonly label: string | null, readonly url: string | null } | null> | null } | null };
+
+type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomePageQuery = { readonly contentstackPage: { readonly title: string, readonly url: string | null, readonly uid: string | null, readonly locale: string | null, readonly seo: { readonly enable_search_indexing: boolean | null, readonly keywords: string | null, readonly meta_description: string | null, readonly meta_title: string | null } | null, readonly page_components: ReadonlyArray<{ readonly contact_details: { readonly address: string | null, readonly email: string | null, readonly phone: string | null } | null, readonly enquiry_block: { readonly title: string | null, readonly body: string | null } | null, readonly cards_slider: { readonly title: string | null, readonly cards: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly date: string | null, readonly url: string | null, readonly featured_image: { readonly url: string | null, readonly title: string | null } } | null> } | null, readonly from_blog: { readonly title_h2: string | null, readonly featured_blogs: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly uid: string | null, readonly url: string | null, readonly body: Record<string, unknown> | null, readonly featured_image: { readonly url: string | null, readonly uid: string | null }, readonly author: ReadonlyArray<{ readonly title: string, readonly uid: string | null, readonly bio: string | null } | null> } | null> | null, readonly view_articles: { readonly title: string | null, readonly href: string | null } | null } | null, readonly hero_banner: { readonly banner_description: string | null, readonly banner_title: string | null, readonly bg_color: string | null, readonly banner_image: { readonly url: string | null, readonly uid: string | null } | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly our_team: { readonly title_h2: string | null, readonly description: string | null, readonly employees: ReadonlyArray<{ readonly name: string | null, readonly designation: string | null, readonly image: { readonly url: string | null, readonly uid: string | null } } | null> | null } | null, readonly section: { readonly title_h2: string | null, readonly description: string | null, readonly image_alignment: string | null, readonly image: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly section_with_buckets: { readonly title_h2: string | null, readonly description: string | null, readonly buckets: ReadonlyArray<{ readonly title_h3: string | null, readonly description: Record<string, unknown> | null, readonly icon: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null, readonly section_with_cards: { readonly cards: ReadonlyArray<{ readonly title_h3: string | null, readonly description: string | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null } | null> | null } | null };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

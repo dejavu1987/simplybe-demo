@@ -46,7 +46,7 @@ const Home = ({ data: { contentstackPage } }: PageProps) => {
 }
 
 export const pageQuery = graphql`
-  query {
+  query HomePage {
     contentstackPage(url: { eq: "/" }) {
       title
       url
@@ -67,6 +67,19 @@ export const pageQuery = graphql`
         enquiry_block {
           title
           body
+        }
+        cards_slider {
+          title
+          cards {
+            title
+            type
+            date(formatString: "ll")
+            url
+            featured_image {
+              url
+              title
+            }
+          }
         }
         from_blog {
           title_h2

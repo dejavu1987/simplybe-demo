@@ -19,7 +19,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: bold;
+  font-weight: 300;
   letter-spacing: 0.2px;
 }
 
@@ -546,7 +546,21 @@ footer .max-width {
   max-width: 100%;
   inline-size: max-content;
 }
+.cards-slider-section {
+  padding: 3rem 1rem;
+}
 
+.cards-slider-section h2 {
+  padding: 2rem 1rem;
+  border-top: 1px solid #ccc;
+}
+.cards-slider-section .card {
+  border: none;
+  padding: 0 1rem;
+}
+.cards-slider-section .card img {
+  max-width: 100%;
+}
 .featured-content > p {
   overflow: hidden;
   text-overflow: ellipsis;

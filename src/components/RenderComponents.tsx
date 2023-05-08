@@ -11,6 +11,7 @@ import AboutSectionBucket from "./AboutSectionBucket"
 import SectionWithEmbedObject from "./SectionWithEmbedObject"
 import { Component } from "../typescript/component"
 import { Link } from "gatsby"
+import CardsSlider from "./CardsSlider"
 
 const RenderComponents = ({
   components,
@@ -51,6 +52,9 @@ const RenderComponents = ({
         }
         if (component["from_blog"]) {
           return <BlogSection data={component} key={"render" + index} />
+        }
+        if (component["cards_slider"]) {
+          return <CardsSlider data={component} key={"render" + index} />
         }
         if (component["section_with_cards"]) {
           return <CardSection data={component} key={"render" + index} />
