@@ -64,6 +64,10 @@ export const pageQuery = graphql`
           email
           phone
         }
+        enquiry_block {
+          title
+          body
+        }
         from_blog {
           title_h2
           featured_blogs {

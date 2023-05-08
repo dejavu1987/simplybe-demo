@@ -2953,6 +2953,12 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.contact_details.address'
   | 'page_components.contact_details.email'
   | 'page_components.contact_details.phone'
+  | 'page_components.enquiry_block.background.gradient_end'
+  | 'page_components.enquiry_block.background.gradient_start'
+  | 'page_components.enquiry_block.body'
+  | 'page_components.enquiry_block.cta.label'
+  | 'page_components.enquiry_block.cta.url'
+  | 'page_components.enquiry_block.title'
   | 'page_components.from_blog.featured_blogs'
   | 'page_components.from_blog.featured_blogs._version'
   | 'page_components.from_blog.featured_blogs.author'
@@ -3165,6 +3171,7 @@ type Contentstack_pageSortInput = {
 
 type Contentstack_page_page_components = {
   readonly contact_details: Maybe<Contentstack_page_page_componentscontact_details>;
+  readonly enquiry_block: Maybe<Contentstack_page_page_componentsenquiry_block>;
   readonly from_blog: Maybe<Contentstack_page_page_componentsfrom_blog>;
   readonly hero_banner: Maybe<Contentstack_page_page_componentshero_banner>;
   readonly our_team: Maybe<Contentstack_page_page_componentsour_team>;
@@ -3177,6 +3184,7 @@ type Contentstack_page_page_components = {
 
 type Contentstack_page_page_componentsFilterInput = {
   readonly contact_details: InputMaybe<Contentstack_page_page_componentscontact_detailsFilterInput>;
+  readonly enquiry_block: InputMaybe<Contentstack_page_page_componentsenquiry_blockFilterInput>;
   readonly from_blog: InputMaybe<Contentstack_page_page_componentsfrom_blogFilterInput>;
   readonly hero_banner: InputMaybe<Contentstack_page_page_componentshero_bannerFilterInput>;
   readonly our_team: InputMaybe<Contentstack_page_page_componentsour_teamFilterInput>;
@@ -3201,6 +3209,40 @@ type Contentstack_page_page_componentscontact_detailsFilterInput = {
   readonly address: InputMaybe<StringQueryOperatorInput>;
   readonly email: InputMaybe<StringQueryOperatorInput>;
   readonly phone: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_page_page_componentsenquiry_block = {
+  readonly background: Maybe<Contentstack_page_page_componentsenquiry_block_background>;
+  readonly body: Maybe<Scalars['String']>;
+  readonly cta: Maybe<Contentstack_page_page_componentsenquiry_block_cta>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type Contentstack_page_page_componentsenquiry_blockFilterInput = {
+  readonly background: InputMaybe<Contentstack_page_page_componentsenquiry_block_backgroundFilterInput>;
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly cta: InputMaybe<Contentstack_page_page_componentsenquiry_block_ctaFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_page_page_componentsenquiry_block_background = {
+  readonly gradient_end: Maybe<Scalars['String']>;
+  readonly gradient_start: Maybe<Scalars['String']>;
+};
+
+type Contentstack_page_page_componentsenquiry_block_backgroundFilterInput = {
+  readonly gradient_end: InputMaybe<StringQueryOperatorInput>;
+  readonly gradient_start: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_page_page_componentsenquiry_block_cta = {
+  readonly label: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type Contentstack_page_page_componentsenquiry_block_ctaFilterInput = {
+  readonly label: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_page_page_componentsfrom_blog = {

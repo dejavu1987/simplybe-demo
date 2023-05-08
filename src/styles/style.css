@@ -176,6 +176,17 @@ footer a {
   cursor: pointer;
   transition: background-color 0.3s ease-out;
 }
+.outline-btn {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+.outline-btn:hover {
+  text-decoration: underline;
+  color: #fff;
+}
 
 .primary-btn:hover {
   background: #0095e1;
@@ -353,7 +364,21 @@ footer a {
 .home-content p {
   margin-bottom: 32px;
 }
+.centered-block {
+  text-align: center;
+  padding: 5rem 20px;
+  color: #fff;
+}
 
+.centered-block h2 {
+  font-weight: 200;
+  color: #fff;
+}
+
+.centered-block p {
+  color: #fff;
+  margin-bottom: 2rem;
+}
 .home-advisor-section {
   background: #fff;
   text-align: center;

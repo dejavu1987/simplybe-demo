@@ -9,7 +9,8 @@ import TeamSection from "./TeamSection"
 import SectionBucket from "./SectionBucket"
 import AboutSectionBucket from "./AboutSectionBucket"
 import SectionWithEmbedObject from "./SectionWithEmbedObject"
-import { Component } from "../typescript/component";
+import { Component } from "../typescript/component"
+import { Link } from "gatsby"
 
 const RenderComponents = ({
   components,
@@ -17,12 +18,12 @@ const RenderComponents = ({
   contentTypeUid,
   blogPage,
   locale,
-}:{
-  components: Component[],
-  entryUid: string;
-  contentTypeUid: string;
-  blogPage?: boolean;
-  locale: string;
+}: {
+  components: Component[]
+  entryUid: string
+  contentTypeUid: string
+  blogPage?: boolean
+  locale: string
 }) => {
   return (
     <div
@@ -61,6 +62,25 @@ const RenderComponents = ({
         }
         if (component["our_team"]) {
           return <TeamSection data={component} key={"render" + index} />
+        }
+        if (component["enquiry_block"]) {
+          return (
+            <div
+              className="centered-block"
+              style={{
+                background: `linear-gradient(45deg, ${component["enquiry_block"].background.gradient_start} 0%, ${component["enquiry_block"].background.gradient_end} 100%)`,
+              }}
+            >
+              <h2>{component["enquiry_block"].title}</h2>
+              <p>{component["enquiry_block"].body}</p>
+              <Link
+                to={component["enquiry_block"].cta?.url}
+                className="btn outline-btn"
+              >
+                {component["enquiry_block"].cta?.label}
+              </Link>
+            </div>
+          )
         }
       })}
     </div>
