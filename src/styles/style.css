@@ -107,7 +107,7 @@ footer {
 
 footer a {
   color: #fff;
-  padding: 12px;
+  margin-right: 2rem;
 }
 
 footer p {
@@ -118,10 +118,14 @@ footer p {
 footer .footer-logo {
   max-width: 90px;
 }
-
+footer .social-nav {
+  margin-top: 3rem;
+}
 .footer-social-links {
   background: #fff;
+  padding: 0.5rem;
   margin-left: 1rem;
+  margin-right: 0;
 }
 
 footer .footer-div.max-width {
@@ -137,11 +141,23 @@ footer .footer-div.max-width {
 
 .col-half {
   margin: auto;
+  margin-left: 2rem;
+  display: flex;
+  gap: 5rem;
+}
+footer h4 {
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+footer .nav-ul li {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 200;
 }
 
 .col-quarter {
   display: inline-block;
-  margin: auto 0;
+  margin: 0;
 }
 
 .copyright {

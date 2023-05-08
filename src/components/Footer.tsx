@@ -83,6 +83,31 @@ const Footer = () => {
         </div>
         <div className="col-half">
           <nav>
+            <h4>Our services</h4>
+            <ul className="nav-ul">
+              {getFooter.navigation.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <nav>
+            <h4>More on TMF Group</h4>
+            <ul className="nav-ul">
+              {getFooter.navigation.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <nav>
+            <h4> ...</h4>
             <ul className="nav-ul">
               {getFooter.navigation.link.map((menu: Menu, index: number) => {
                 return (
