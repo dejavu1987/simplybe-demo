@@ -2,6 +2,11 @@
 @import "./tool-tip.css";
 @import "./header.css";
 
+:root {
+  --primary-color: #0073ae;
+  --accent-color: #ee3524;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -165,8 +170,8 @@ footer a {
 }
 
 .primary-btn {
-  background: #0073ae;
-  border: 1px solid #0073ae;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease-out;
@@ -337,11 +342,12 @@ footer a {
   width: 50%;
 }
 
-.hero-content,
-.home-content {
+.section-content {
   text-align: left;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .home-content p {
@@ -349,7 +355,7 @@ footer a {
 }
 
 .home-advisor-section {
-  background: #f7f7f7;
+  background: #fff;
   text-align: center;
   padding: 60px 30px;
 }
@@ -404,7 +410,7 @@ footer a {
   font-size: 22px;
   font-weight: 300;
   display: block;
-  color: #0073ae;
+  color: var(--primary-color);
 }
 
 .member-main-section p {
@@ -428,14 +434,16 @@ footer a {
 
 .home-featured-blogs {
   display: flex;
-  padding: 20px;
+  padding: 60px 20px;
   justify-content: center;
   text-align: left;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .community-section {
   text-align: center;
+  background: #efefef;
 }
 
 .community-head {
@@ -451,13 +459,26 @@ footer a {
 }
 
 .featured-blog {
-  width: 526px;
-  border: #f7f5f5 solid;
-  margin: 4px 33px;
+  position: relative;
+  width: 22%;
+  border: 1px #ccc solid;
+  background: #fff;
+}
+
+.featured-type {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.1rem 0.7rem;
 }
 
 .featured-blog img {
   object-fit: cover;
+  max-width: 100%;
   inline-size: max-content;
 }
 
@@ -472,6 +493,12 @@ footer a {
 
 .featured-content {
   padding: 16px;
+}
+
+.featured-blog .featured-content h3 {
+  font-weight: 300;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
 }
 
 .demo-section {
@@ -491,6 +518,23 @@ footer a {
   margin-left: 24px;
   display: flex;
   flex-direction: column;
+}
+
+.global-reach-section {
+  text-align: center;
+  padding: 7rem 10px 10px;
+}
+
+.global-reach-section h2 {
+  font-weight: 300;
+  font-size: 22px;
+}
+.global-reach-section p {
+  margin-bottom: 0;
+}
+
+.global-reach-content {
+  padding-bottom: 4rem;
 }
 
 /* home page ends here */
@@ -972,6 +1016,7 @@ footer a {
     justify-content: center;
     text-align: left;
     flex-wrap: wrap;
+    color: red;
   }
 
   .content-section {

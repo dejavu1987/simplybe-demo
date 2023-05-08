@@ -961,6 +961,7 @@ type Contentstack_blog_post = Node & {
   readonly related_post: Maybe<ReadonlyArray<Maybe<Contentstack_blog_post>>>;
   readonly seo: Maybe<Contentstack_blog_post_seo>;
   readonly title: Scalars['String'];
+  readonly type: Maybe<Scalars['String']>;
   readonly uid: Maybe<Scalars['String']>;
   readonly updated_at: Maybe<Scalars['Date']>;
   readonly updated_by: Maybe<Scalars['String']>;
@@ -1498,6 +1499,7 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.related_post.related_post.locale'
   | 'related_post.related_post.related_post.related_post'
   | 'related_post.related_post.related_post.title'
+  | 'related_post.related_post.related_post.type'
   | 'related_post.related_post.related_post.uid'
   | 'related_post.related_post.related_post.updated_at'
   | 'related_post.related_post.related_post.updated_by'
@@ -1507,6 +1509,7 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.related_post.seo.meta_description'
   | 'related_post.related_post.seo.meta_title'
   | 'related_post.related_post.title'
+  | 'related_post.related_post.type'
   | 'related_post.related_post.uid'
   | 'related_post.related_post.updated_at'
   | 'related_post.related_post.updated_by'
@@ -1516,6 +1519,7 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.seo.meta_description'
   | 'related_post.seo.meta_title'
   | 'related_post.title'
+  | 'related_post.type'
   | 'related_post.uid'
   | 'related_post.updated_at'
   | 'related_post.updated_by'
@@ -1525,6 +1529,7 @@ type Contentstack_blog_postFieldsEnum =
   | 'seo.meta_description'
   | 'seo.meta_title'
   | 'title'
+  | 'type'
   | 'uid'
   | 'updated_at'
   | 'updated_by'
@@ -1548,6 +1553,7 @@ type Contentstack_blog_postFilterInput = {
   readonly related_post: InputMaybe<Contentstack_blog_postFilterListInput>;
   readonly seo: InputMaybe<Contentstack_blog_post_seoFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly updated_at: InputMaybe<DateQueryOperatorInput>;
   readonly updated_by: InputMaybe<StringQueryOperatorInput>;
@@ -2468,6 +2474,344 @@ type Contentstack_header_secondary_menuFilterListInput = {
   readonly elemMatch: InputMaybe<Contentstack_header_secondary_menuFilterInput>;
 };
 
+type Contentstack_news_and_insights = Node & {
+  readonly _version: Maybe<Scalars['Int']>;
+  readonly body: Maybe<Scalars['String']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly created_at: Maybe<Scalars['Date']>;
+  readonly created_by: Maybe<Scalars['String']>;
+  readonly featured_image: Contentstack_assets;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly publish_details: Maybe<Contentstack_news_and_insights_publish_details>;
+  readonly title: Scalars['String'];
+  readonly type: Maybe<Scalars['String']>;
+  readonly uid: Maybe<Scalars['String']>;
+  readonly updated_at: Maybe<Scalars['Date']>;
+  readonly updated_by: Maybe<Scalars['String']>;
+};
+
+
+type Contentstack_news_and_insights_created_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type Contentstack_news_and_insights_updated_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type Contentstack_news_and_insightsConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_news_and_insightsEdge>;
+  readonly group: ReadonlyArray<Contentstack_news_and_insightsGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_news_and_insights>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_news_and_insightsConnection_distinctArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsConnection_groupArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_news_and_insightsConnection_maxArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsConnection_minArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsConnection_sumArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+type Contentstack_news_and_insightsEdge = {
+  readonly next: Maybe<Contentstack_news_and_insights>;
+  readonly node: Contentstack_news_and_insights;
+  readonly previous: Maybe<Contentstack_news_and_insights>;
+};
+
+type Contentstack_news_and_insightsFieldsEnum =
+  | '_version'
+  | 'body'
+  | 'children'
+  | 'children.children'
+  | 'children.children.children'
+  | 'children.children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.id'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.contentFilePath'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.children.parent.children'
+  | 'children.children.parent.id'
+  | 'children.id'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.contentFilePath'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'children.parent.children'
+  | 'children.parent.children.children'
+  | 'children.parent.children.id'
+  | 'children.parent.id'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.contentFilePath'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.parent.parent.children'
+  | 'children.parent.parent.id'
+  | 'created_at'
+  | 'created_by'
+  | 'featured_image._version'
+  | 'featured_image.children'
+  | 'featured_image.children.children'
+  | 'featured_image.children.children.children'
+  | 'featured_image.children.children.id'
+  | 'featured_image.children.id'
+  | 'featured_image.children.internal.content'
+  | 'featured_image.children.internal.contentDigest'
+  | 'featured_image.children.internal.contentFilePath'
+  | 'featured_image.children.internal.description'
+  | 'featured_image.children.internal.fieldOwners'
+  | 'featured_image.children.internal.ignoreType'
+  | 'featured_image.children.internal.mediaType'
+  | 'featured_image.children.internal.owner'
+  | 'featured_image.children.internal.type'
+  | 'featured_image.children.parent.children'
+  | 'featured_image.children.parent.id'
+  | 'featured_image.content_type'
+  | 'featured_image.created_at'
+  | 'featured_image.created_by'
+  | 'featured_image.description'
+  | 'featured_image.dimension.height'
+  | 'featured_image.dimension.width'
+  | 'featured_image.file_size'
+  | 'featured_image.filename'
+  | 'featured_image.gatsbyImageData'
+  | 'featured_image.id'
+  | 'featured_image.internal.content'
+  | 'featured_image.internal.contentDigest'
+  | 'featured_image.internal.contentFilePath'
+  | 'featured_image.internal.description'
+  | 'featured_image.internal.fieldOwners'
+  | 'featured_image.internal.ignoreType'
+  | 'featured_image.internal.mediaType'
+  | 'featured_image.internal.owner'
+  | 'featured_image.internal.type'
+  | 'featured_image.is_dir'
+  | 'featured_image.parent.children'
+  | 'featured_image.parent.children.children'
+  | 'featured_image.parent.children.id'
+  | 'featured_image.parent.id'
+  | 'featured_image.parent.internal.content'
+  | 'featured_image.parent.internal.contentDigest'
+  | 'featured_image.parent.internal.contentFilePath'
+  | 'featured_image.parent.internal.description'
+  | 'featured_image.parent.internal.fieldOwners'
+  | 'featured_image.parent.internal.ignoreType'
+  | 'featured_image.parent.internal.mediaType'
+  | 'featured_image.parent.internal.owner'
+  | 'featured_image.parent.internal.type'
+  | 'featured_image.parent.parent.children'
+  | 'featured_image.parent.parent.id'
+  | 'featured_image.parent_uid'
+  | 'featured_image.publish_details.environment'
+  | 'featured_image.publish_details.locale'
+  | 'featured_image.publish_details.time'
+  | 'featured_image.publish_details.user'
+  | 'featured_image.title'
+  | 'featured_image.uid'
+  | 'featured_image.updated_at'
+  | 'featured_image.updated_by'
+  | 'featured_image.url'
+  | 'id'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.contentFilePath'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'locale'
+  | 'parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.id'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.contentFilePath'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.children.parent.children'
+  | 'parent.children.parent.id'
+  | 'parent.id'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.contentFilePath'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'parent.parent.children'
+  | 'parent.parent.children.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.id'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.contentFilePath'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.parent.id'
+  | 'publish_details.environment'
+  | 'publish_details.locale'
+  | 'publish_details.time'
+  | 'publish_details.user'
+  | 'title'
+  | 'type'
+  | 'uid'
+  | 'updated_at'
+  | 'updated_by';
+
+type Contentstack_news_and_insightsFilterInput = {
+  readonly _version: InputMaybe<IntQueryOperatorInput>;
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly created_at: InputMaybe<DateQueryOperatorInput>;
+  readonly created_by: InputMaybe<StringQueryOperatorInput>;
+  readonly featured_image: InputMaybe<Contentstack_assetsFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publish_details: InputMaybe<Contentstack_news_and_insights_publish_detailsFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<StringQueryOperatorInput>;
+  readonly updated_at: InputMaybe<DateQueryOperatorInput>;
+  readonly updated_by: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_news_and_insightsGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_news_and_insightsEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<Contentstack_news_and_insightsGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_news_and_insights>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_news_and_insightsGroupConnection_distinctArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsGroupConnection_groupArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_news_and_insightsGroupConnection_maxArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsGroupConnection_minArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+
+type Contentstack_news_and_insightsGroupConnection_sumArgs = {
+  field: Contentstack_news_and_insightsFieldsEnum;
+};
+
+type Contentstack_news_and_insightsSortInput = {
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<Contentstack_news_and_insightsFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+};
+
+type Contentstack_news_and_insights_publish_details = {
+  readonly environment: Maybe<Scalars['String']>;
+  readonly locale: Maybe<Scalars['String']>;
+  readonly time: Maybe<Scalars['Date']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+
+type Contentstack_news_and_insights_publish_details_timeArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type Contentstack_news_and_insights_publish_detailsFilterInput = {
+  readonly environment: InputMaybe<StringQueryOperatorInput>;
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly time: InputMaybe<DateQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
+};
+
 type Contentstack_page = Node & {
   readonly _version: Maybe<Scalars['Int']>;
   readonly children: ReadonlyArray<Node>;
@@ -2622,6 +2966,7 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.from_blog.featured_blogs.locale'
   | 'page_components.from_blog.featured_blogs.related_post'
   | 'page_components.from_blog.featured_blogs.title'
+  | 'page_components.from_blog.featured_blogs.type'
   | 'page_components.from_blog.featured_blogs.uid'
   | 'page_components.from_blog.featured_blogs.updated_at'
   | 'page_components.from_blog.featured_blogs.updated_by'
@@ -4531,6 +4876,7 @@ type Query = {
   readonly allContentstackContentTypes: ContentstackContentTypesConnection;
   readonly allContentstackFooter: Contentstack_footerConnection;
   readonly allContentstackHeader: Contentstack_headerConnection;
+  readonly allContentstackNewsAndInsights: Contentstack_news_and_insightsConnection;
   readonly allContentstackPage: Contentstack_pageConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
@@ -4546,6 +4892,7 @@ type Query = {
   readonly contentstackContentTypes: Maybe<ContentstackContentTypes>;
   readonly contentstackFooter: Maybe<Contentstack_footer>;
   readonly contentstackHeader: Maybe<Contentstack_header>;
+  readonly contentstackNewsAndInsights: Maybe<Contentstack_news_and_insights>;
   readonly contentstackPage: Maybe<Contentstack_page>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
@@ -4603,6 +4950,14 @@ type Query_allContentstackHeaderArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<Contentstack_headerSortInput>;
+};
+
+
+type Query_allContentstackNewsAndInsightsArgs = {
+  filter: InputMaybe<Contentstack_news_and_insightsFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<Contentstack_news_and_insightsSortInput>;
 };
 
 
@@ -4740,6 +5095,7 @@ type Query_contentstackBlogPostArgs = {
   related_post: InputMaybe<Contentstack_blog_postFilterListInput>;
   seo: InputMaybe<Contentstack_blog_post_seoFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  type: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
   updated_by: InputMaybe<StringQueryOperatorInput>;
@@ -4798,6 +5154,26 @@ type Query_contentstackHeaderArgs = {
   publish_details: InputMaybe<Contentstack_header_publish_detailsFilterInput>;
   secondary_menu: InputMaybe<Contentstack_header_secondary_menuFilterListInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  uid: InputMaybe<StringQueryOperatorInput>;
+  updated_at: InputMaybe<DateQueryOperatorInput>;
+  updated_by: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_contentstackNewsAndInsightsArgs = {
+  _version: InputMaybe<IntQueryOperatorInput>;
+  body: InputMaybe<StringQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  created_at: InputMaybe<DateQueryOperatorInput>;
+  created_by: InputMaybe<StringQueryOperatorInput>;
+  featured_image: InputMaybe<Contentstack_assetsFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publish_details: InputMaybe<Contentstack_news_and_insights_publish_detailsFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  type: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
   updated_by: InputMaybe<StringQueryOperatorInput>;

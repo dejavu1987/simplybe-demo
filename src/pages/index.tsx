@@ -68,6 +68,7 @@ export const pageQuery = graphql`
           title_h2
           featured_blogs {
             title
+            type
             uid
             url
             featured_image {

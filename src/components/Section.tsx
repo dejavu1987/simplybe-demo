@@ -3,7 +3,7 @@ import React from "react"
 import { SectionProps } from "../typescript/component"
 
 type Data = {
-  section: SectionProps;
+  section: SectionProps
 }
 
 type DataSection = {
@@ -15,13 +15,13 @@ type DataImg = {
 }
 
 type BucketProps = {
-  data: Data;
+  data: Data
 }
 
 const Section = ({ data }: BucketProps) => {
   function contentSection(dataSection: DataSection, index: string) {
     return (
-      <div className="home-content" key={index}>
+      <div className="section-content" key={index}>
         {dataSection.section.title_h2 && (
           <h2 {...dataSection.section.$?.title_h2}>
             {dataSection.section.title_h2}
@@ -48,7 +48,7 @@ const Section = ({ data }: BucketProps) => {
     )
   }
 
-  function imageContent(dataImg: DataImg, index:string) {
+  function imageContent(dataImg: DataImg, index: string) {
     return (
       <div>
         <img
@@ -64,9 +64,9 @@ const Section = ({ data }: BucketProps) => {
   return (
     <div className="home-advisor-section">
       <div className="wrapper">
-      {data.section.image_alignment === "Left"
-        ? [imageContent(data, "left-1"), contentSection(data, "left-2")]
-        : [contentSection(data, "right-1"), imageContent(data, "right-2")]}
+        {data.section.image_alignment === "Left"
+          ? [imageContent(data, "left-1"), contentSection(data, "left-2")]
+          : [contentSection(data, "right-1"), imageContent(data, "right-2")]}
       </div>
     </div>
   )

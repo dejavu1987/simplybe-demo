@@ -3,22 +3,24 @@ import parser from "html-react-parser"
 import { ObjectProps } from "../typescript/component"
 
 type Data = {
-  section_with_html_code: ObjectProps;
+  section_with_html_code: ObjectProps
 }
 
 type EmbedSection = {
-  data: Data;
+  data: Data
 }
 
-const SectionWithEmbedObject = ({ data: { section_with_html_code } }: EmbedSection) => {
+const SectionWithEmbedObject = ({
+  data: { section_with_html_code },
+}: EmbedSection) => {
   if (section_with_html_code.html_code_alignment === "Left") {
     return (
-      <div className="contact-page-section max-width">
-        <div className="contact-page-content">
+      <div className="global-reach-section max-width">
+        <div className="global-reach-content">
           {section_with_html_code.title ? (
-            <h1 {...section_with_html_code.$?.title}>
+            <h2 {...section_with_html_code.$?.title}>
               {section_with_html_code.title}
-            </h1>
+            </h2>
           ) : (
             ""
           )}
@@ -30,7 +32,7 @@ const SectionWithEmbedObject = ({ data: { section_with_html_code } }: EmbedSecti
             ""
           )}{" "}
         </div>
-        <div className="contact-page-form">
+        <div className="global-reach-form">
           {typeof section_with_html_code.html_code === "string" ? (
             <div {...section_with_html_code.$?.html_code}>
               {parser(section_with_html_code.html_code)}

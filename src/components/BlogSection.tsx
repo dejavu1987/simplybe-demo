@@ -8,34 +8,17 @@ type Data = {
 }
 
 type FeaturedBlogProps = {
-  data: Data;
+  data: Data
 }
 
 const BlogSection = ({ data: { from_blog } }: FeaturedBlogProps) => {
   return (
     <div className="community-section">
-      <div className="community-head">
-        {from_blog.title_h2 ? (
-          <h2 {...from_blog.$?.title_h2}>{from_blog.title_h2}</h2>
-        ) : (
-          ""
-        )}
-        {from_blog.view_articles ? (
-          <a
-            href={from_blog.view_articles.href}
-            className="btn secondary-btn article-btn"
-            {...from_blog.view_articles.$?.title}
-          >
-            {from_blog.view_articles.title}
-          </a>
-        ) : (
-          ""
-        )}
-      </div>
       <div className="home-featured-blogs">
         {from_blog.featured_blogs.map((blog, index) => {
           return (
             <div className="featured-blog" key={index}>
+              {blog.type && <div className="featured-type">{blog.type}</div>}
               {blog.featured_image ? (
                 <img
                   {...blog.featured_image.$?.url}
@@ -48,14 +31,9 @@ const BlogSection = ({ data: { from_blog } }: FeaturedBlogProps) => {
               )}
               <div className="featured-content">
                 {blog.title ? <h3 {...blog.$?.title}>{blog.title}</h3> : ""}
-                {typeof blog.body === "string" && (
-                  <div {...blog.$?.body}>
-                    {" "}
-                    {parser(blog.body.slice(0, 300))}
-                  </div>
-                )}
-                <Link className="blogpost-readmore" to={blog.url}>
-                  {"Read More -->"}
+
+                <Link className="btn primary-btn" to={blog.url}>
+                  {"Read More"}
                 </Link>
               </div>
             </div>
