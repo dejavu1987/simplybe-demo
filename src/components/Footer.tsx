@@ -22,6 +22,12 @@ const queryLayout = () => {
             title
           }
         }
+        policies {
+          link {
+            title
+            href
+          }
+        }
         social {
           social_share {
             link {
@@ -107,9 +113,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="policies">
+        <div className="max-width">
+          {getFooter.policies.link.map((link, index: number) => {
+            return (
+              <a
+                href={link?.href}
+                title={link.title}
+                key={index}
+                className="policies-link"
+              >
+                {link.title}
+              </a>
+            )
+          })}
+        </div>
+      </div>
       <div className="copyright">
         {typeof getFooter.copyright === "string" ? (
-          <div {...getFooter.$?.copyright}>{parser(getFooter?.copyright)}</div>
+          <div className="max-width" {...getFooter.$?.copyright}>
+            {parser(getFooter?.copyright)}
+          </div>
         ) : (
           ""
         )}

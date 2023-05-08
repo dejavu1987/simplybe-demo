@@ -68,7 +68,7 @@ const RenderComponents = ({
             <div
               className="centered-block"
               style={{
-                background: `linear-gradient(45deg, ${component["enquiry_block"].background.gradient_start} 0%, ${component["enquiry_block"].background.gradient_end} 100%)`,
+                background: `linear-gradient(45deg, ${component["enquiry_block"].background?.gradient_start} 0%, ${component["enquiry_block"].background?.gradient_end} 100%)`,
               }}
             >
               <h2>{component["enquiry_block"].title}</h2>

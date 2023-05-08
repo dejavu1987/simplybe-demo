@@ -101,18 +101,34 @@ header nav li a.active {
 
 footer {
   margin-top: 75px;
-  background: #fff;
+  background: #4d4d4d;
+  color: #fff;
 }
 
 footer a {
-  color: #222222;
+  color: #fff;
   padding: 12px;
 }
 
-.footer-div {
+footer p {
+  color: #fff;
+  margin: 0;
+}
+
+footer .footer-logo {
+  max-width: 90px;
+}
+
+.footer-social-links {
+  background: #fff;
+  margin-left: 1rem;
+}
+
+footer .footer-div.max-width {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  padding: 2rem 20px;
 }
 
 .footer-nav-li {
@@ -129,8 +145,16 @@ footer a {
 }
 
 .copyright {
-  padding: 5px;
-  text-align: center;
+  padding: 1rem;
+  text-align: left;
+  background: #333;
+}
+footer .policies {
+  padding: 2rem 0;
+  background: #3d3d3d;
+}
+footer .max-width {
+  padding: 0 2rem;
 }
 
 .contact-form {

@@ -1658,6 +1658,7 @@ type Contentstack_footer = Node & {
   readonly logo: Contentstack_assets;
   readonly navigation: Maybe<Contentstack_footer_navigation>;
   readonly parent: Maybe<Node>;
+  readonly policies: Maybe<Contentstack_footer_policies>;
   readonly publish_details: Maybe<Contentstack_footer_publish_details>;
   readonly social: Maybe<Contentstack_footer_social>;
   readonly title: Scalars['String'];
@@ -1850,6 +1851,7 @@ type Contentstack_footerFieldsEnum =
   | 'navigation.link'
   | 'navigation.link.href'
   | 'navigation.link.title'
+  | 'navigation.link.uuid'
   | 'parent.children'
   | 'parent.children.children'
   | 'parent.children.children.children'
@@ -1891,6 +1893,10 @@ type Contentstack_footerFieldsEnum =
   | 'parent.parent.internal.type'
   | 'parent.parent.parent.children'
   | 'parent.parent.parent.id'
+  | 'policies.link'
+  | 'policies.link.href'
+  | 'policies.link.title'
+  | 'policies.link.uuid'
   | 'publish_details.environment'
   | 'publish_details.locale'
   | 'publish_details.time'
@@ -1915,6 +1921,7 @@ type Contentstack_footerFieldsEnum =
   | 'social.social_share.icon.url'
   | 'social.social_share.link.href'
   | 'social.social_share.link.title'
+  | 'social.social_share.link.uuid'
   | 'title'
   | 'uid'
   | 'updated_at'
@@ -1932,6 +1939,7 @@ type Contentstack_footerFilterInput = {
   readonly logo: InputMaybe<Contentstack_assetsFilterInput>;
   readonly navigation: InputMaybe<Contentstack_footer_navigationFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly policies: InputMaybe<Contentstack_footer_policiesFilterInput>;
   readonly publish_details: InputMaybe<Contentstack_footer_publish_detailsFilterInput>;
   readonly social: InputMaybe<Contentstack_footer_socialFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
@@ -1991,6 +1999,14 @@ type Contentstack_footer_navigation = {
 };
 
 type Contentstack_footer_navigationFilterInput = {
+  readonly link: InputMaybe<linktypeFilterListInput>;
+};
+
+type Contentstack_footer_policies = {
+  readonly link: Maybe<ReadonlyArray<Maybe<linktype>>>;
+};
+
+type Contentstack_footer_policiesFilterInput = {
   readonly link: InputMaybe<linktypeFilterListInput>;
 };
 
@@ -2980,6 +2996,7 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.from_blog.title_h2'
   | 'page_components.from_blog.view_articles.href'
   | 'page_components.from_blog.view_articles.title'
+  | 'page_components.from_blog.view_articles.uuid'
   | 'page_components.hero_banner.banner_description'
   | 'page_components.hero_banner.banner_image._version'
   | 'page_components.hero_banner.banner_image.children'
@@ -3002,6 +3019,7 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.hero_banner.bg_color'
   | 'page_components.hero_banner.call_to_action.href'
   | 'page_components.hero_banner.call_to_action.title'
+  | 'page_components.hero_banner.call_to_action.uuid'
   | 'page_components.hero_banner.text_color'
   | 'page_components.our_team.description'
   | 'page_components.our_team.employees'
@@ -3010,6 +3028,7 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.our_team.title_h2'
   | 'page_components.section.call_to_action.href'
   | 'page_components.section.call_to_action.title'
+  | 'page_components.section.call_to_action.uuid'
   | 'page_components.section.description'
   | 'page_components.section.image._version'
   | 'page_components.section.image.children'
@@ -5171,6 +5190,7 @@ type Query_contentstackFooterArgs = {
   logo: InputMaybe<Contentstack_assetsFilterInput>;
   navigation: InputMaybe<Contentstack_footer_navigationFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
+  policies: InputMaybe<Contentstack_footer_policiesFilterInput>;
   publish_details: InputMaybe<Contentstack_footer_publish_detailsFilterInput>;
   social: InputMaybe<Contentstack_footer_socialFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
@@ -6625,11 +6645,13 @@ type WebPOptions = {
 type linktype = {
   readonly href: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
+  readonly uuid: Maybe<Scalars['Int']>;
 };
 
 type linktypeFilterInput = {
   readonly href: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly uuid: InputMaybe<IntQueryOperatorInput>;
 };
 
 type linktypeFilterListInput = {
