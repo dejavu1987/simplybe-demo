@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import { SectionProps } from "../typescript/component"
+import classNames from "classnames"
 
 type Data = {
   section: SectionProps
@@ -19,6 +20,8 @@ type BucketProps = {
 }
 
 const Section = ({ data }: BucketProps) => {
+  const { background } = data.section
+
   function contentSection(dataSection: DataSection, index: string) {
     return (
       <div className="section-content" key={index}>
@@ -37,7 +40,10 @@ const Section = ({ data }: BucketProps) => {
           <a
             {...dataSection.section.call_to_action.$?.href}
             href={dataSection.section.call_to_action.href}
-            className="btn secondary-btn"
+            className={classNames(
+              "btn",
+              background ? "outline-btn" : "primary-btn"
+            )}
           >
             {dataSection.section.call_to_action.title}
           </a>
@@ -60,9 +66,20 @@ const Section = ({ data }: BucketProps) => {
       </div>
     )
   }
-
   return (
-    <div className="home-advisor-section">
+    <div
+      className={classNames(
+        "section-block",
+        background ? "has-background" : ""
+      )}
+      style={
+        background
+          ? {
+              background: `linear-gradient(45deg, ${background.gradient_start} 0%, ${background.gradient_end} 100%)`,
+            }
+          : {}
+      }
+    >
       <div className="wrapper">
         {data.section.image_alignment === "Left"
           ? [imageContent(data, "left-1"), contentSection(data, "left-2")]

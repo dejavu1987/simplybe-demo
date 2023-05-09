@@ -419,28 +419,32 @@ footer .max-width {
   color: #fff;
   margin-bottom: 2rem;
 }
-.home-advisor-section {
+.section-block {
   background: #fff;
   text-align: center;
   padding: 60px 30px;
 }
+.section-block.has-background,
+.section-block.has-background p {
+  color: #fff;
+}
 
-.home-advisor-section img {
+.section-block img {
   width: 100%;
 }
 
-.home-advisor-section p {
+.section-block p {
   font-weight: 300;
   color: #455560;
   line-height: 1.32;
 }
 
-.home-advisor-section .wrapper {
+.section-block .wrapper {
   display: flex;
   justify-content: space-evenly;
 }
 
-.home-advisor-section .wrapper > * {
+.section-block .wrapper > * {
   padding: 0 30px;
   width: 50%;
 }
@@ -1022,11 +1026,11 @@ footer .max-width {
     flex-wrap: wrap;
   }
 
-  .home-advisor-section .wrapper {
+  .section-block .wrapper {
     flex-direction: column;
   }
 
-  .home-advisor-section .wrapper > * {
+  .section-block .wrapper > * {
     margin: 20px 0;
     width: 100%;
   }
