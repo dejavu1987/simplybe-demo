@@ -12,6 +12,7 @@ import SectionWithEmbedObject from "./SectionWithEmbedObject"
 import { Component } from "../typescript/component"
 import { Link } from "gatsby"
 import CardsSlider from "./CardsSlider"
+import Products from "./Products"
 
 const RenderComponents = ({
   components,
@@ -62,6 +63,11 @@ const RenderComponents = ({
         if (component["section_with_html_code"]) {
           return (
             <SectionWithEmbedObject data={component} key={"render" + index} />
+          )
+        }
+        if (component["products"]) {
+          return (
+            <Products data={component} key={"render" + index} />
           )
         }
         if (component["our_team"]) {

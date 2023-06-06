@@ -168,6 +168,9 @@ export const pageQuery = graphql`
             }
           }
         }
+        products {
+          products
+        }
       }
     }
   }

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Tooltip from "./ToolTip"
-import jsonIcon from "../images/json.svg"
 import { getHeaderRes, jsonToHtmlParse } from "../helper/index.d"
 import { onEntryChange } from "../live-preview-sdk/index.d"
+import closeIcon from "../images/close.svg"
 import DevTools, { useDevTool } from "./DevTools"
 
 const queryHeader = () => {
@@ -24,10 +23,20 @@ const queryHeader = () => {
             url
             uid
           }
+          icon {
+            uid
+            url
+            filename
+          }
         }
         secondary_menu {
           label
           url
+          icon {
+            uid
+            url
+            filename
+          }
         }
       }
     }
@@ -40,6 +49,7 @@ const Header = () => {
   jsonToHtmlParse(contentstackHeader)
   const [getHeader, setHeader] = useState(contentstackHeader)
   const { devToolData, updateDevTool } = useDevTool()
+  const [isOpen, setOpen] = useState(false);
 
   async function updateHeaderData() {
     const headerRes = await getHeaderRes()
@@ -54,21 +64,34 @@ const Header = () => {
     onEntryChange(() => updateHeaderData())
   }, [onEntryChange])
 
-  return (
-    <header className="header">
-      <nav className="header__secondary-nav">
-        <div className="max-width">
-          <ul>
-            {getHeader?.secondary_menu?.map((menu: any) => (
-              <li>
-                <a href={menu.url}>{menu.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+  const toggleOpenNav = () => {
+    setOpen(!isOpen);
+  }
 
-      <div className="max-width header-div">
+  return (
+    <header className="header max-width">
+      <nav className="header__secondary-nav">
+        <div className="header__menu-nav">
+          {getHeader?.secondary_menu?.slice(0,2).map((menu: any) => (
+            <div>
+              {menu?.label === "Menu" ? (
+                <button onClick={toggleOpenNav}>
+                  <span className="button-label">
+                    <img src={menu.icon.url} />
+                    {menu.label}
+                  </span>
+                </button>
+                ) : (
+                <button>
+                  <span className="button-label">
+                    <img src={menu.icon.url} />
+                    {menu.label}
+                  </span>
+                </button>
+                )};
+            </div>
+          ))}
+        </div>
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
             <img
@@ -79,23 +102,36 @@ const Header = () => {
             />
           </Link>
         </div>
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn">
-          <span className="navicon"></span>
-        </label>
+        <ul className="header__user-nav">
+          {getHeader?.secondary_menu?.slice(-2).map((menu: any) => (
+            <li>
+              <span className="button-label">
+                <a href={menu.url}>{menu.label}<img src={menu.icon.url} /></a>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
+      <div className={isOpen ? 'main-nav-background open': 'main-nav-background'} onClick={toggleOpenNav}></div>
+      <div className={isOpen ? 'main-nav open': 'main-nav'}>
+        <button className="close-button" onClick={toggleOpenNav}>
+          <img src={closeIcon} alt="Close navigation" />
+        </button>
         <nav className="menu">
           <ul className="nav-ul header-ul">
             {getHeader?.navigation_menu?.map((menu, index: number) => {
               if (!menu) return ""
               return (
-                <li className="nav-li" key={menu.label}>
-                  {menu?.label === "Home" ? (
+                <li className={"nav-li " + menu.label} key={menu.label}>
+                  {menu?.label === "Sign In" ? (
                     <Link
                       to={`${menu.page_reference[0]?.url}`}
                       activeClassName="active"
+                      className="signin"
                     >
                       {menu.label}
+                      <img src={menu.icon.url} />
                     </Link>
                   ) : (
                     <Link
@@ -111,19 +147,19 @@ const Header = () => {
           </ul>
         </nav>
 
-        <div className="json-preview">
-          <Tooltip
-            content="JSON Preview"
-            direction="top"
-            dynamic={false}
-            delay={200}
-            status={0}
-          >
-            <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <img src={jsonIcon} alt="JSON Preview icon" />
-            </span>
-          </Tooltip>
-        </div>
+        {/*<div className="json-preview">*/}
+        {/*  <Tooltip*/}
+        {/*    content="JSON Preview"*/}
+        {/*    direction="top"*/}
+        {/*    dynamic={false}*/}
+        {/*    delay={200}*/}
+        {/*    status={0}*/}
+        {/*  >*/}
+        {/*    <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">*/}
+        {/*      <img src={jsonIcon} alt="JSON Preview icon" />*/}
+        {/*    </span>*/}
+        {/*  </Tooltip>*/}
+        {/*</div>*/}
       </div>
     </header>
   )
