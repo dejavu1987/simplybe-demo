@@ -381,12 +381,12 @@ type Contentstack_assetsConnection_sumArgs = {
 };
 
 type Contentstack_assetsDimension = {
-  readonly height: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Float']>;
   readonly width: Maybe<Scalars['Int']>;
 };
 
 type Contentstack_assetsDimensionFilterInput = {
-  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
@@ -2054,6 +2054,270 @@ type Contentstack_footer_social_social_shareFilterListInput = {
   readonly elemMatch: InputMaybe<Contentstack_footer_social_social_shareFilterInput>;
 };
 
+type Contentstack_form = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly created_at: Maybe<Scalars['Date']>;
+  readonly fields: Maybe<ReadonlyArray<Maybe<Contentstack_form_fields>>>;
+  readonly form: Maybe<Scalars['JSON']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly publish_details: Maybe<Contentstack_form_publish_details>;
+  readonly title: Scalars['String'];
+  readonly uid: Maybe<Scalars['String']>;
+  readonly updated_at: Maybe<Scalars['Date']>;
+};
+
+
+type Contentstack_form_created_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type Contentstack_form_updated_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type Contentstack_formConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_formEdge>;
+  readonly group: ReadonlyArray<Contentstack_formGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_form>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_formConnection_distinctArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formConnection_groupArgs = {
+  field: Contentstack_formFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_formConnection_maxArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formConnection_minArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formConnection_sumArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+type Contentstack_formEdge = {
+  readonly next: Maybe<Contentstack_form>;
+  readonly node: Contentstack_form;
+  readonly previous: Maybe<Contentstack_form>;
+};
+
+type Contentstack_formFieldsEnum =
+  | 'children'
+  | 'children.children'
+  | 'children.children.children'
+  | 'children.children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.id'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.contentFilePath'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.children.parent.children'
+  | 'children.children.parent.id'
+  | 'children.id'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.contentFilePath'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'children.parent.children'
+  | 'children.parent.children.children'
+  | 'children.parent.children.id'
+  | 'children.parent.id'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.contentFilePath'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.parent.parent.children'
+  | 'children.parent.parent.id'
+  | 'created_at'
+  | 'fields'
+  | 'fields.field_type'
+  | 'fields.name'
+  | 'form'
+  | 'id'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.contentFilePath'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'locale'
+  | 'parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.id'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.contentFilePath'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.children.parent.children'
+  | 'parent.children.parent.id'
+  | 'parent.id'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.contentFilePath'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'parent.parent.children'
+  | 'parent.parent.children.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.id'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.contentFilePath'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.parent.id'
+  | 'publish_details.locale'
+  | 'title'
+  | 'uid'
+  | 'updated_at';
+
+type Contentstack_formFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly created_at: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<Contentstack_form_fieldsFilterListInput>;
+  readonly form: InputMaybe<JSONQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publish_details: InputMaybe<Contentstack_form_publish_detailsFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<StringQueryOperatorInput>;
+  readonly updated_at: InputMaybe<DateQueryOperatorInput>;
+};
+
+type Contentstack_formGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_formEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<Contentstack_formGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_form>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_formGroupConnection_distinctArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formGroupConnection_groupArgs = {
+  field: Contentstack_formFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_formGroupConnection_maxArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formGroupConnection_minArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+
+type Contentstack_formGroupConnection_sumArgs = {
+  field: Contentstack_formFieldsEnum;
+};
+
+type Contentstack_formSortInput = {
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<Contentstack_formFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+};
+
+type Contentstack_form_fields = {
+  readonly field_type: Maybe<Scalars['String']>;
+  readonly name: Maybe<Scalars['String']>;
+};
+
+type Contentstack_form_fieldsFilterInput = {
+  readonly field_type: InputMaybe<StringQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_form_fieldsFilterListInput = {
+  readonly elemMatch: InputMaybe<Contentstack_form_fieldsFilterInput>;
+};
+
+type Contentstack_form_publish_details = {
+  readonly locale: Maybe<Scalars['String']>;
+};
+
+type Contentstack_form_publish_detailsFilterInput = {
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+};
+
 type Contentstack_header = Node & {
   readonly _version: Maybe<Scalars['Int']>;
   readonly children: ReadonlyArray<Node>;
@@ -2261,6 +2525,42 @@ type Contentstack_headerFieldsEnum =
   | 'logo.updated_by'
   | 'logo.url'
   | 'navigation_menu'
+  | 'navigation_menu.icon._version'
+  | 'navigation_menu.icon.children'
+  | 'navigation_menu.icon.children.children'
+  | 'navigation_menu.icon.children.id'
+  | 'navigation_menu.icon.content_type'
+  | 'navigation_menu.icon.created_at'
+  | 'navigation_menu.icon.created_by'
+  | 'navigation_menu.icon.description'
+  | 'navigation_menu.icon.dimension.height'
+  | 'navigation_menu.icon.dimension.width'
+  | 'navigation_menu.icon.file_size'
+  | 'navigation_menu.icon.filename'
+  | 'navigation_menu.icon.gatsbyImageData'
+  | 'navigation_menu.icon.id'
+  | 'navigation_menu.icon.internal.content'
+  | 'navigation_menu.icon.internal.contentDigest'
+  | 'navigation_menu.icon.internal.contentFilePath'
+  | 'navigation_menu.icon.internal.description'
+  | 'navigation_menu.icon.internal.fieldOwners'
+  | 'navigation_menu.icon.internal.ignoreType'
+  | 'navigation_menu.icon.internal.mediaType'
+  | 'navigation_menu.icon.internal.owner'
+  | 'navigation_menu.icon.internal.type'
+  | 'navigation_menu.icon.is_dir'
+  | 'navigation_menu.icon.parent.children'
+  | 'navigation_menu.icon.parent.id'
+  | 'navigation_menu.icon.parent_uid'
+  | 'navigation_menu.icon.publish_details.environment'
+  | 'navigation_menu.icon.publish_details.locale'
+  | 'navigation_menu.icon.publish_details.time'
+  | 'navigation_menu.icon.publish_details.user'
+  | 'navigation_menu.icon.title'
+  | 'navigation_menu.icon.uid'
+  | 'navigation_menu.icon.updated_at'
+  | 'navigation_menu.icon.updated_by'
+  | 'navigation_menu.icon.url'
   | 'navigation_menu.label'
   | 'navigation_menu.page_reference'
   | 'navigation_menu.page_reference._version'
@@ -2342,6 +2642,42 @@ type Contentstack_headerFieldsEnum =
   | 'publish_details.time'
   | 'publish_details.user'
   | 'secondary_menu'
+  | 'secondary_menu.icon._version'
+  | 'secondary_menu.icon.children'
+  | 'secondary_menu.icon.children.children'
+  | 'secondary_menu.icon.children.id'
+  | 'secondary_menu.icon.content_type'
+  | 'secondary_menu.icon.created_at'
+  | 'secondary_menu.icon.created_by'
+  | 'secondary_menu.icon.description'
+  | 'secondary_menu.icon.dimension.height'
+  | 'secondary_menu.icon.dimension.width'
+  | 'secondary_menu.icon.file_size'
+  | 'secondary_menu.icon.filename'
+  | 'secondary_menu.icon.gatsbyImageData'
+  | 'secondary_menu.icon.id'
+  | 'secondary_menu.icon.internal.content'
+  | 'secondary_menu.icon.internal.contentDigest'
+  | 'secondary_menu.icon.internal.contentFilePath'
+  | 'secondary_menu.icon.internal.description'
+  | 'secondary_menu.icon.internal.fieldOwners'
+  | 'secondary_menu.icon.internal.ignoreType'
+  | 'secondary_menu.icon.internal.mediaType'
+  | 'secondary_menu.icon.internal.owner'
+  | 'secondary_menu.icon.internal.type'
+  | 'secondary_menu.icon.is_dir'
+  | 'secondary_menu.icon.parent.children'
+  | 'secondary_menu.icon.parent.id'
+  | 'secondary_menu.icon.parent_uid'
+  | 'secondary_menu.icon.publish_details.environment'
+  | 'secondary_menu.icon.publish_details.locale'
+  | 'secondary_menu.icon.publish_details.time'
+  | 'secondary_menu.icon.publish_details.user'
+  | 'secondary_menu.icon.title'
+  | 'secondary_menu.icon.uid'
+  | 'secondary_menu.icon.updated_at'
+  | 'secondary_menu.icon.updated_by'
+  | 'secondary_menu.icon.url'
   | 'secondary_menu.label'
   | 'secondary_menu.url'
   | 'title'
@@ -2441,11 +2777,13 @@ type Contentstack_header_language_select_languagesFilterListInput = {
 };
 
 type Contentstack_header_navigation_menu = {
+  readonly icon: Maybe<Contentstack_assets>;
   readonly label: Maybe<Scalars['String']>;
   readonly page_reference: ReadonlyArray<Maybe<Contentstack_page>>;
 };
 
 type Contentstack_header_navigation_menuFilterInput = {
+  readonly icon: InputMaybe<Contentstack_assetsFilterInput>;
   readonly label: InputMaybe<StringQueryOperatorInput>;
   readonly page_reference: InputMaybe<Contentstack_pageFilterListInput>;
 };
@@ -2477,11 +2815,13 @@ type Contentstack_header_publish_detailsFilterInput = {
 };
 
 type Contentstack_header_secondary_menu = {
+  readonly icon: Maybe<Contentstack_assets>;
   readonly label: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
 };
 
 type Contentstack_header_secondary_menuFilterInput = {
+  readonly icon: InputMaybe<Contentstack_assetsFilterInput>;
   readonly label: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
 };
@@ -3048,6 +3388,9 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.our_team.employees.designation'
   | 'page_components.our_team.employees.name'
   | 'page_components.our_team.title_h2'
+  | 'page_components.products.products'
+  | 'page_components.section.background.gradient_end'
+  | 'page_components.section.background.gradient_start'
   | 'page_components.section.call_to_action.href'
   | 'page_components.section.call_to_action.title'
   | 'page_components.section.call_to_action.uuid'
@@ -3217,6 +3560,7 @@ type Contentstack_page_page_components = {
   readonly from_blog: Maybe<Contentstack_page_page_componentsfrom_blog>;
   readonly hero_banner: Maybe<Contentstack_page_page_componentshero_banner>;
   readonly our_team: Maybe<Contentstack_page_page_componentsour_team>;
+  readonly products: Maybe<Contentstack_page_page_componentsproducts>;
   readonly section: Maybe<Contentstack_page_page_componentssection>;
   readonly section_with_buckets: Maybe<Contentstack_page_page_componentssection_with_buckets>;
   readonly section_with_cards: Maybe<Contentstack_page_page_componentssection_with_cards>;
@@ -3231,6 +3575,7 @@ type Contentstack_page_page_componentsFilterInput = {
   readonly from_blog: InputMaybe<Contentstack_page_page_componentsfrom_blogFilterInput>;
   readonly hero_banner: InputMaybe<Contentstack_page_page_componentshero_bannerFilterInput>;
   readonly our_team: InputMaybe<Contentstack_page_page_componentsour_teamFilterInput>;
+  readonly products: InputMaybe<Contentstack_page_page_componentsproductsFilterInput>;
   readonly section: InputMaybe<Contentstack_page_page_componentssectionFilterInput>;
   readonly section_with_buckets: InputMaybe<Contentstack_page_page_componentssection_with_bucketsFilterInput>;
   readonly section_with_cards: InputMaybe<Contentstack_page_page_componentssection_with_cardsFilterInput>;
@@ -3358,7 +3703,16 @@ type Contentstack_page_page_componentsour_team_employeesFilterListInput = {
   readonly elemMatch: InputMaybe<Contentstack_page_page_componentsour_team_employeesFilterInput>;
 };
 
+type Contentstack_page_page_componentsproducts = {
+  readonly products: Maybe<Scalars['JSON']>;
+};
+
+type Contentstack_page_page_componentsproductsFilterInput = {
+  readonly products: InputMaybe<JSONQueryOperatorInput>;
+};
+
 type Contentstack_page_page_componentssection = {
+  readonly background: Maybe<Contentstack_page_page_componentssection_background>;
   readonly call_to_action: Maybe<linktype>;
   readonly description: Maybe<Scalars['String']>;
   readonly image: Contentstack_assets;
@@ -3367,11 +3721,22 @@ type Contentstack_page_page_componentssection = {
 };
 
 type Contentstack_page_page_componentssectionFilterInput = {
+  readonly background: InputMaybe<Contentstack_page_page_componentssection_backgroundFilterInput>;
   readonly call_to_action: InputMaybe<linktypeFilterInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly image: InputMaybe<Contentstack_assetsFilterInput>;
   readonly image_alignment: InputMaybe<StringQueryOperatorInput>;
   readonly title_h2: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_page_page_componentssection_background = {
+  readonly gradient_end: Maybe<Scalars['String']>;
+  readonly gradient_start: Maybe<Scalars['String']>;
+};
+
+type Contentstack_page_page_componentssection_backgroundFilterInput = {
+  readonly gradient_end: InputMaybe<StringQueryOperatorInput>;
+  readonly gradient_start: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_page_page_componentssection_with_buckets = {
@@ -4972,6 +5337,7 @@ type Query = {
   readonly allContentstackBlogPost: Contentstack_blog_postConnection;
   readonly allContentstackContentTypes: ContentstackContentTypesConnection;
   readonly allContentstackFooter: Contentstack_footerConnection;
+  readonly allContentstackForm: Contentstack_formConnection;
   readonly allContentstackHeader: Contentstack_headerConnection;
   readonly allContentstackNewsAndInsights: Contentstack_news_and_insightsConnection;
   readonly allContentstackPage: Contentstack_pageConnection;
@@ -4988,6 +5354,7 @@ type Query = {
   readonly contentstackBlogPost: Maybe<Contentstack_blog_post>;
   readonly contentstackContentTypes: Maybe<ContentstackContentTypes>;
   readonly contentstackFooter: Maybe<Contentstack_footer>;
+  readonly contentstackForm: Maybe<Contentstack_form>;
   readonly contentstackHeader: Maybe<Contentstack_header>;
   readonly contentstackNewsAndInsights: Maybe<Contentstack_news_and_insights>;
   readonly contentstackPage: Maybe<Contentstack_page>;
@@ -5039,6 +5406,14 @@ type Query_allContentstackFooterArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<Contentstack_footerSortInput>;
+};
+
+
+type Query_allContentstackFormArgs = {
+  filter: InputMaybe<Contentstack_formFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<Contentstack_formSortInput>;
 };
 
 
@@ -5233,6 +5608,22 @@ type Query_contentstackFooterArgs = {
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
   updated_by: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_contentstackFormArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  created_at: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<Contentstack_form_fieldsFilterListInput>;
+  form: InputMaybe<JSONQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publish_details: InputMaybe<Contentstack_form_publish_detailsFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  uid: InputMaybe<StringQueryOperatorInput>;
+  updated_at: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -6723,12 +7114,12 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type HeaderQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HeaderQueryQuery = { readonly contentstackHeader: { readonly title: string, readonly uid: string | null, readonly logo: { readonly uid: string | null, readonly url: string | null, readonly filename: string | null }, readonly navigation_menu: ReadonlyArray<{ readonly label: string | null, readonly page_reference: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly uid: string | null } | null> } | null> | null, readonly secondary_menu: ReadonlyArray<{ readonly label: string | null, readonly url: string | null } | null> | null } | null };
+type HeaderQueryQuery = { readonly contentstackHeader: { readonly title: string, readonly uid: string | null, readonly logo: { readonly uid: string | null, readonly url: string | null, readonly filename: string | null }, readonly navigation_menu: ReadonlyArray<{ readonly label: string | null, readonly page_reference: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly uid: string | null } | null>, readonly icon: { readonly uid: string | null, readonly url: string | null, readonly filename: string | null } | null } | null> | null, readonly secondary_menu: ReadonlyArray<{ readonly label: string | null, readonly url: string | null, readonly icon: { readonly uid: string | null, readonly url: string | null, readonly filename: string | null } | null } | null> | null } | null };
 
 type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomePageQuery = { readonly contentstackPage: { readonly title: string, readonly url: string | null, readonly uid: string | null, readonly locale: string | null, readonly seo: { readonly enable_search_indexing: boolean | null, readonly keywords: string | null, readonly meta_description: string | null, readonly meta_title: string | null } | null, readonly page_components: ReadonlyArray<{ readonly contact_details: { readonly address: string | null, readonly email: string | null, readonly phone: string | null } | null, readonly enquiry_block: { readonly title: string | null, readonly body: string | null } | null, readonly cards_slider: { readonly title: string | null, readonly cards: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly date: string | null, readonly url: string | null, readonly featured_image: { readonly url: string | null, readonly title: string | null } } | null> } | null, readonly from_blog: { readonly title_h2: string | null, readonly featured_blogs: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly uid: string | null, readonly url: string | null, readonly body: Record<string, unknown> | null, readonly featured_image: { readonly url: string | null, readonly uid: string | null }, readonly author: ReadonlyArray<{ readonly title: string, readonly uid: string | null, readonly bio: string | null } | null> } | null> | null, readonly view_articles: { readonly title: string | null, readonly href: string | null } | null } | null, readonly hero_banner: { readonly banner_description: string | null, readonly banner_title: string | null, readonly bg_color: string | null, readonly banner_image: { readonly url: string | null, readonly uid: string | null } | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly our_team: { readonly title_h2: string | null, readonly description: string | null, readonly employees: ReadonlyArray<{ readonly name: string | null, readonly designation: string | null, readonly image: { readonly url: string | null, readonly uid: string | null } } | null> | null } | null, readonly section: { readonly title_h2: string | null, readonly description: string | null, readonly image_alignment: string | null, readonly image: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly section_with_buckets: { readonly title_h2: string | null, readonly description: string | null, readonly buckets: ReadonlyArray<{ readonly title_h3: string | null, readonly description: Record<string, unknown> | null, readonly icon: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null, readonly section_with_cards: { readonly cards: ReadonlyArray<{ readonly title_h3: string | null, readonly description: string | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null } | null> | null } | null };
+type HomePageQuery = { readonly contentstackPage: { readonly title: string, readonly url: string | null, readonly uid: string | null, readonly locale: string | null, readonly seo: { readonly enable_search_indexing: boolean | null, readonly keywords: string | null, readonly meta_description: string | null, readonly meta_title: string | null } | null, readonly page_components: ReadonlyArray<{ readonly contact_details: { readonly address: string | null, readonly email: string | null, readonly phone: string | null } | null, readonly enquiry_block: { readonly title: string | null, readonly body: string | null } | null, readonly cards_slider: { readonly title: string | null, readonly cards: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly date: string | null, readonly url: string | null, readonly featured_image: { readonly url: string | null, readonly title: string | null } } | null> } | null, readonly from_blog: { readonly title_h2: string | null, readonly featured_blogs: ReadonlyArray<{ readonly title: string, readonly type: string | null, readonly uid: string | null, readonly url: string | null, readonly body: Record<string, unknown> | null, readonly featured_image: { readonly url: string | null, readonly uid: string | null }, readonly author: ReadonlyArray<{ readonly title: string, readonly uid: string | null, readonly bio: string | null } | null> } | null> | null, readonly view_articles: { readonly title: string | null, readonly href: string | null } | null } | null, readonly hero_banner: { readonly banner_description: string | null, readonly banner_title: string | null, readonly bg_color: string | null, readonly banner_image: { readonly url: string | null, readonly uid: string | null } | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly our_team: { readonly title_h2: string | null, readonly description: string | null, readonly employees: ReadonlyArray<{ readonly name: string | null, readonly designation: string | null, readonly image: { readonly url: string | null, readonly uid: string | null } } | null> | null } | null, readonly section: { readonly title_h2: string | null, readonly description: string | null, readonly image_alignment: string | null, readonly image: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null, readonly section_with_buckets: { readonly title_h2: string | null, readonly description: string | null, readonly buckets: ReadonlyArray<{ readonly title_h3: string | null, readonly description: Record<string, unknown> | null, readonly icon: { readonly url: string | null, readonly uid: string | null }, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null, readonly section_with_cards: { readonly cards: ReadonlyArray<{ readonly title_h3: string | null, readonly description: string | null, readonly call_to_action: { readonly title: string | null, readonly href: string | null } | null } | null> | null } | null, readonly products: { readonly products: Record<string, unknown> | null } | null } | null> | null } | null };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

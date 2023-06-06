@@ -8,10 +8,13 @@ type ProductProps = {
 const Products = ({ data }: ProductProps) => {
   return (
     <div className="product-list">
-      {JSON.stringify(data.products.products)}
-      {data.products.products.map((product, index) => {
-        <p>{product}</p>
-      });
+      {data.products.products.data.map((product, index) => {
+        return (
+          <div className="product">
+            <p>Name {JSON.stringify(product.values.Product_name[0].data)}</p>
+          </div>
+        )
+      })}
     </div>
   )
 }
