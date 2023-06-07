@@ -7467,12 +7467,7 @@ type HomePageQuery = { readonly contentstackPage: { readonly title: string, read
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly allContentstackBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string | null }> } };
-
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_2_Query = { readonly allContentstackPage: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string | null }> } };
+type Unnamed_1_Query = { readonly allContentstackPage: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string | null }> } };
 
 
 }

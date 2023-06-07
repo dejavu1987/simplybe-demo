@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import React from "react"
 import Dress from "../images/dress.jpg"
 
-
 type ProductProps = {
   data: Data
 }
@@ -16,8 +15,13 @@ const Products = ({ data }: ProductProps) => {
             <div className="product">
               <img src={Dress} alt={product.values.Product_name[0].data} />
               <div className="product-details">
-                <p className="product-price">£45.00</p>
-                <p className="product-name">{product.values.Product_name[0].data}</p>
+                <p className="product-price">
+                  {product.values.price &&
+                    product.values.price[0].data[0].amount}
+                </p>
+                <p className="product-name">
+                  {product.values.Product_name[0].data}
+                </p>
               </div>
             </div>
           )
