@@ -1,8 +1,8 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import React, { useState, useEffect } from "react"
 import parser from "html-react-parser"
-import { onEntryChange } from "../live-preview-sdk/index.d"
-import { getFooterRes, jsonToHtmlParse } from "../helper/index.d"
+import { onEntryChange } from "../live-preview-sdk"
+import { getFooterRes, jsonToHtmlParse } from "../helper"
 import { Social, Menu, Download, PayBy } from "../typescript/layout"
 
 import DevTools, { useDevTool } from "./DevTools"
@@ -163,18 +163,13 @@ const Footer = () => {
       <div className="footer-social max-width">
         <div className="footer-apps">
           <h4>Download our app</h4>
-          {getFooter.download_app.map(
-            (download: Download, index: number) => {
-              return (
-                <a
-                  href={download.link?.href}
-                  key={index}
-                >
-                  <img src={download.icon?.url} alt="Download App" />
-                </a>
-              )
-            }
-          )}
+          {getFooter.download_app.map((download: Download, index: number) => {
+            return (
+              <a href={download.link?.href} key={index}>
+                <img src={download.icon?.url} alt="Download App" />
+              </a>
+            )
+          })}
         </div>
         <div className="social-nav">
           <h4>Simply Be Social</h4>
@@ -198,18 +193,13 @@ const Footer = () => {
         <div className="pay-by">
           <h4>Pay By</h4>
           <div className="pay-by-icons">
-            {getFooter.pay_by.map(
-              (payBy: PayBy, index: number) => {
-                return (
-                  <a
-                    href={payBy.link?.href}
-                    key={index}
-                  >
-                    <img src={payBy.icon?.url} alt="Pay By" />
-                  </a>
-                )
-              }
-            )}
+            {getFooter.pay_by.map((payBy: PayBy, index: number) => {
+              return (
+                <a href={payBy.link?.href} key={index}>
+                  <img src={payBy.icon?.url} alt="Pay By" />
+                </a>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -217,9 +207,7 @@ const Footer = () => {
         <div className="policy-nav">
           <nav>
             {typeof getFooter.copyright === "string" ? (
-              <span className="copyright">
-                {parser(getFooter?.copyright)}
-              </span>
+              <span className="copyright">{parser(getFooter?.copyright)}</span>
             ) : (
               ""
             )}

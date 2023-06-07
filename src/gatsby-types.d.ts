@@ -3920,6 +3920,7 @@ type Contentstack_product = Node & {
   readonly uid: Maybe<Scalars['String']>;
   readonly updated_at: Maybe<Scalars['Date']>;
   readonly updated_by: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -4089,7 +4090,8 @@ type Contentstack_productFieldsEnum =
   | 'title'
   | 'uid'
   | 'updated_at'
-  | 'updated_by';
+  | 'updated_by'
+  | 'url';
 
 type Contentstack_productFilterInput = {
   readonly _version: InputMaybe<IntQueryOperatorInput>;
@@ -4106,6 +4108,7 @@ type Contentstack_productFilterInput = {
   readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly updated_at: InputMaybe<DateQueryOperatorInput>;
   readonly updated_by: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_productGroupConnection = {
@@ -6031,6 +6034,7 @@ type Query_contentstackProductArgs = {
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
   updated_by: InputMaybe<StringQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -7468,6 +7472,11 @@ type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type Unnamed_1_Query = { readonly allContentstackPage: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string | null }> } };
+
+type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_2_Query = { readonly allContentstackProduct: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string | null }> } };
 
 
 }

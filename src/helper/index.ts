@@ -1,4 +1,4 @@
-import Stack from "../live-preview-sdk/index.d"
+import Stack from "../live-preview-sdk"
 import * as Utils from "@contentstack/utils"
 
 const liveEdit = process.env.CONTENTSTACK_LIVE_EDIT_TAGS === "true"
@@ -70,6 +70,16 @@ export const getPageRes = async entryUrl => {
     ],
   })
   liveEdit && Utils.addEditableTags(response[0], "page", true)
+  return response[0]
+}
+export const getProductRes = async entryUrl => {
+  const response = await Stack.getEntryByUrl({
+    contentTypeUid: "product",
+    entryUrl,
+    referenceFieldPath: [],
+    jsonRtePath: [],
+  })
+  liveEdit && Utils.addEditableTags(response[0], "product", true)
   return response[0]
 }
 

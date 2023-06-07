@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { getHeaderRes, jsonToHtmlParse } from "../helper/index.d"
-import { onEntryChange } from "../live-preview-sdk/index.d"
+import { getHeaderRes, jsonToHtmlParse } from "../helper"
+import { onEntryChange } from "../live-preview-sdk"
 import closeIcon from "../images/close.svg"
 import DevTools, { useDevTool } from "./DevTools"
 
@@ -49,7 +49,7 @@ const Header = () => {
   jsonToHtmlParse(contentstackHeader)
   const [getHeader, setHeader] = useState(contentstackHeader)
   const { devToolData, updateDevTool } = useDevTool()
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
 
   async function updateHeaderData() {
     const headerRes = await getHeaderRes()
@@ -65,14 +65,14 @@ const Header = () => {
   }, [onEntryChange])
 
   const toggleOpenNav = () => {
-    setOpen(!isOpen);
+    setOpen(!isOpen)
   }
 
   return (
     <header className="header max-width">
       <nav className="header__secondary-nav">
         <div className="header__menu-nav">
-          {getHeader?.secondary_menu?.slice(0,2).map((menu: any) => (
+          {getHeader?.secondary_menu?.slice(0, 2).map((menu: any) => (
             <div>
               {menu?.label === "Menu" ? (
                 <button onClick={toggleOpenNav}>
@@ -81,14 +81,15 @@ const Header = () => {
                     {menu.label}
                   </span>
                 </button>
-                ) : (
+              ) : (
                 <button>
                   <span className="button-label">
                     <img src={menu.icon.url} />
                     {menu.label}
                   </span>
                 </button>
-                )};
+              )}
+              ;
             </div>
           ))}
         </div>
@@ -106,15 +107,21 @@ const Header = () => {
           {getHeader?.secondary_menu?.slice(-2).map((menu: any) => (
             <li>
               <span className="button-label">
-                <a href={menu.url}>{menu.label}<img src={menu.icon.url} /></a>
+                <a href={menu.url}>
+                  {menu.label}
+                  <img src={menu.icon.url} />
+                </a>
               </span>
             </li>
           ))}
         </ul>
       </nav>
 
-      <div className={isOpen ? 'main-nav-background open': 'main-nav-background'} onClick={toggleOpenNav}></div>
-      <div className={isOpen ? 'main-nav open': 'main-nav'}>
+      <div
+        className={isOpen ? "main-nav-background open" : "main-nav-background"}
+        onClick={toggleOpenNav}
+      ></div>
+      <div className={isOpen ? "main-nav open" : "main-nav"}>
         <button className="close-button" onClick={toggleOpenNav}>
           <img src={closeIcon} alt="Close navigation" />
         </button>
