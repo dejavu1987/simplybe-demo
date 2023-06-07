@@ -104,3 +104,13 @@ export type PageProps = {
     title: string;
     seo: {};
   }
+
+export type Download = {
+    link: Links;
+    icon: Image;
+  }
+
+export type PayBy = {
+    link: Links;
+    icon: Image;
+  }

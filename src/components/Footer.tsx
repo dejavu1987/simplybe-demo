@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import parser from "html-react-parser"
 import { onEntryChange } from "../live-preview-sdk/index.d"
 import { getFooterRes, jsonToHtmlParse } from "../helper/index.d"
-import { Social, Menu } from "../typescript/layout"
+import { Social, Menu, Download, PayBy } from "../typescript/layout"
 
 import DevTools, { useDevTool } from "./DevTools"
 
@@ -16,16 +16,28 @@ const queryLayout = () => {
         logo {
           url
         }
-        navigation {
+        my_account {
           link {
             href
             title
           }
         }
-        policies {
+        help {
           link {
-            title
             href
+            title
+          }
+        }
+        about_us {
+          link {
+            href
+            title
+          }
+        }
+        delivery {
+          link {
+            href
+            title
           }
         }
         social {
@@ -37,6 +49,28 @@ const queryLayout = () => {
             icon {
               url
             }
+          }
+        }
+        download_app {
+          link {
+            href
+          }
+          icon {
+            url
+          }
+        }
+        pay_by {
+          link {
+            href
+          }
+          icon {
+            url
+          }
+        }
+        policies {
+          link {
+            href
+            title
           }
         }
         copyright
@@ -70,57 +104,81 @@ const Footer = () => {
     <footer>
       <DevTools response={devToolData} />
       <div className="max-width footer-div">
-        <div className="col-quarter">
-          <Link to="/" className="logo-tag">
-            <img
-              {...getFooter.logo.$?.url}
-              src={getFooter.logo?.url}
-              alt={getFooter.title}
-              title={getFooter.title}
-              className="logo footer-logo"
-            />
-          </Link>
+        <div className="footer-navigation-wrapper max-width">
+          <nav>
+            <h4>My Account</h4>
+            <ul className="nav-ul">
+              {getFooter.my_account.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <nav>
+            <h4>Help</h4>
+            <ul className="nav-ul">
+              {getFooter.help.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <nav>
+            <h4>About Us</h4>
+            <ul className="nav-ul">
+              {getFooter.about_us.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <nav>
+            <h4>Delivery and Returns</h4>
+            <ul className="nav-ul">
+              {getFooter.delivery.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+          <div className="feedback">
+            <h4>Leave us your feedback</h4>
+            <p>Help us improve your experience</p>
+            <button>Leave Feedback</button>
+          </div>
         </div>
-        <div className="col-half">
-          <nav>
-            <h4>Our services</h4>
-            <ul className="nav-ul">
-              {getFooter.navigation.link.map((menu: Menu, index: number) => {
-                return (
-                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
-                    <Link to={menu.href}>{menu.title}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-          <nav>
-            <h4>More on TMF Group</h4>
-            <ul className="nav-ul">
-              {getFooter.navigation.link.map((menu: Menu, index: number) => {
-                return (
-                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
-                    <Link to={menu.href}>{menu.title}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-          <nav>
-            <h4> ...</h4>
-            <ul className="nav-ul">
-              {getFooter.navigation.link.map((menu: Menu, index: number) => {
-                return (
-                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
-                    <Link to={menu.href}>{menu.title}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
+      </div>
+      <div className="footer-social max-width">
+        <div className="footer-apps">
+          <h4>Download our app</h4>
+          {getFooter.download_app.map(
+            (download: Download, index: number) => {
+              return (
+                <a
+                  href={download.link?.href}
+                  key={index}
+                >
+                  <img src={download.icon?.url} alt="Download App" />
+                </a>
+              )
+            }
+          )}
         </div>
-        <div className="col-quarter social-link">
-          <div className="social-nav">
+        <div className="social-nav">
+          <h4>Simply Be Social</h4>
+          <div className="social-nav-icons">
             {getFooter.social.social_share.map(
               (social: Social, index: number) => {
                 return (
@@ -137,31 +195,45 @@ const Footer = () => {
             )}
           </div>
         </div>
-      </div>
-      <div className="policies">
-        <div className="max-width">
-          {getFooter.policies.link.map((link, index: number) => {
-            return (
-              <a
-                href={link?.href}
-                title={link.title}
-                key={index}
-                className="policies-link"
-              >
-                {link.title}
-              </a>
-            )
-          })}
+        <div className="pay-by">
+          <h4>Pay By</h4>
+          <div className="pay-by-icons">
+            {getFooter.pay_by.map(
+              (payBy: PayBy, index: number) => {
+                return (
+                  <a
+                    href={payBy.link?.href}
+                    key={index}
+                  >
+                    <img src={payBy.icon?.url} alt="Pay By" />
+                  </a>
+                )
+              }
+            )}
+          </div>
         </div>
       </div>
-      <div className="copyright">
-        {typeof getFooter.copyright === "string" ? (
-          <div className="max-width" {...getFooter.$?.copyright}>
-            {parser(getFooter?.copyright)}
-          </div>
-        ) : (
-          ""
-        )}
+      <div className="footer-policies max-width">
+        <div className="policy-nav">
+          <nav>
+            {typeof getFooter.copyright === "string" ? (
+              <span className="copyright">
+                {parser(getFooter?.copyright)}
+              </span>
+            ) : (
+              ""
+            )}
+            <ul className="nav-ul">
+              {getFooter.policies.link.map((menu: Menu, index: number) => {
+                return (
+                  <li className="footer-nav-li" key={index} {...menu.$?.title}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </div>
       </div>
     </footer>
   )

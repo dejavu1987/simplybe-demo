@@ -1,6 +1,7 @@
 @import "./json-preview.css";
 @import "./tool-tip.css";
 @import "./header.css";
+@import "./products.css";
 
 :root {
   --primary-color: #0073ae;
@@ -55,6 +56,7 @@ body p {
   width: 100%;
   margin: 0 auto;
   max-width: 1340px;
+  padding: 0 15px;
 }
 
 .note-div {
@@ -101,13 +103,29 @@ header nav li a.active {
 
 footer {
   margin-top: 75px;
-  background: #4d4d4d;
-  color: #fff;
+  border: 2px solid #e3e5e6;
+  color: #000;
+}
+
+footer nav {
+  max-width: 195px;
+}
+
+footer nav ul {
+  padding-left: 0;
 }
 
 footer a {
-  color: #fff;
-  margin-right: 2rem;
+  color: #000;
+  margin-right: 1.8rem;
+  font-weight : 500;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #000;
 }
 
 footer p {
@@ -118,21 +136,22 @@ footer p {
 footer .footer-logo {
   max-width: 90px;
 }
-footer .social-nav {
-  margin-top: 3rem;
-}
+
 .footer-social-links {
   background: #fff;
-  padding: 0.5rem;
-  margin-left: 1rem;
-  margin-right: 0;
 }
 
 footer .footer-div.max-width {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  padding: 2rem 20px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer-navigation-wrapper {
+  display: flex;
+  gap: 2rem;
 }
 
 .footer-nav-li {
@@ -141,17 +160,18 @@ footer .footer-div.max-width {
 
 .col-half {
   margin: auto;
-  margin-left: 2rem;
+  margin-left: 0;
   display: flex;
   gap: 5rem;
 }
 footer h4 {
-  font-weight: 300;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 footer .nav-ul li {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
   font-weight: 200;
 }
 
@@ -161,16 +181,100 @@ footer .nav-ul li {
 }
 
 .copyright {
-  padding: 1rem;
-  text-align: left;
-  background: #333;
+  float: right;
+  padding-top: 8px;
 }
+
+.copyright p {
+  color: #000;
+  display: inline;
+  font-size: 0.75rem;
+  font-family: "Nunito", sans-serif;
+}
+
 footer .policies {
   padding: 2rem 0;
   background: #3d3d3d;
 }
-footer .max-width {
-  padding: 0 2rem;
+
+.footer-social {
+  display: flex;
+  margin-bottom: 4rem;
+}
+
+.footer-apps {
+  flex-basis: 40%;
+}
+
+.social-nav-icons {
+  display: flex;
+  max-width : 220px;
+}
+
+.social-nav-icons a {
+  flex-basis: 25%;
+}
+
+.social-nav-icons a img{
+  width: 100%;
+}
+
+.pay-by {
+  margin-left: auto;
+}
+
+.pay-by-icons {
+  display: flex;
+  max-width : 110px;
+}
+
+.pay-by-icons a {
+  flex-basis: 50%;
+  margin-right: 0.75rem;
+}
+
+.pay-by-icons a img{
+  width: 100%;
+}
+
+.footer-policies{
+  border-top: 1px solid #e3e5e6;
+}
+
+.footer-policies nav {
+  max-width: none;
+}
+
+.footer-policies .nav-ul{
+  margin-top: 0.5rem;
+}
+
+.footer-policies .nav-ul li {
+  display: inline-block;
+}
+
+.footer-policies .nav-ul li a{
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.feedback {
+  text-align: center;
+  margin-left: auto;
+}
+
+.feedback p {
+  color: #000;
+}
+
+.feedback button {
+  border: 1px solid black;
+  border-radius: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .contact-form {

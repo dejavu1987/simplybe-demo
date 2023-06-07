@@ -1,0 +1,20 @@
+.product-list {
+    background-color: #f8f8f8;
+}
+
+.product-list-inner {
+    display: flex;
+    column-gap: 1.5rem;
+}
+
+.product-details {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+    color: #000;
+}
+
+.product-details p {
+    color: #000;
+    font-size: 1rem;
+}

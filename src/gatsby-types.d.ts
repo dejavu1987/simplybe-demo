@@ -605,11 +605,9 @@ type Contentstack_assetsSortInput = {
 };
 
 type Contentstack_author = Node & {
-  readonly _version: Maybe<Scalars['Int']>;
   readonly bio: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly created_at: Maybe<Scalars['Date']>;
-  readonly created_by: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly locale: Maybe<Scalars['String']>;
@@ -619,7 +617,6 @@ type Contentstack_author = Node & {
   readonly title: Scalars['String'];
   readonly uid: Maybe<Scalars['String']>;
   readonly updated_at: Maybe<Scalars['Date']>;
-  readonly updated_by: Maybe<Scalars['String']>;
 };
 
 
@@ -684,7 +681,6 @@ type Contentstack_authorEdge = {
 };
 
 type Contentstack_authorFieldsEnum =
-  | '_version'
   | 'bio'
   | 'children'
   | 'children.children'
@@ -729,7 +725,6 @@ type Contentstack_authorFieldsEnum =
   | 'children.parent.parent.children'
   | 'children.parent.parent.id'
   | 'created_at'
-  | 'created_by'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -844,21 +839,15 @@ type Contentstack_authorFieldsEnum =
   | 'picture.updated_at'
   | 'picture.updated_by'
   | 'picture.url'
-  | 'publish_details.environment'
   | 'publish_details.locale'
-  | 'publish_details.time'
-  | 'publish_details.user'
   | 'title'
   | 'uid'
-  | 'updated_at'
-  | 'updated_by';
+  | 'updated_at';
 
 type Contentstack_authorFilterInput = {
-  readonly _version: InputMaybe<IntQueryOperatorInput>;
   readonly bio: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly created_at: InputMaybe<DateQueryOperatorInput>;
-  readonly created_by: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly locale: InputMaybe<StringQueryOperatorInput>;
@@ -868,7 +857,6 @@ type Contentstack_authorFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly updated_at: InputMaybe<DateQueryOperatorInput>;
-  readonly updated_by: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_authorFilterListInput = {
@@ -922,34 +910,18 @@ type Contentstack_authorSortInput = {
 };
 
 type Contentstack_author_publish_details = {
-  readonly environment: Maybe<Scalars['String']>;
   readonly locale: Maybe<Scalars['String']>;
-  readonly time: Maybe<Scalars['Date']>;
-  readonly user: Maybe<Scalars['String']>;
-};
-
-
-type Contentstack_author_publish_details_timeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type Contentstack_author_publish_detailsFilterInput = {
-  readonly environment: InputMaybe<StringQueryOperatorInput>;
   readonly locale: InputMaybe<StringQueryOperatorInput>;
-  readonly time: InputMaybe<DateQueryOperatorInput>;
-  readonly user: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_blog_post = Node & {
-  readonly _version: Maybe<Scalars['Int']>;
   readonly author: ReadonlyArray<Maybe<Contentstack_author>>;
   readonly body: Maybe<Scalars['JSON']>;
   readonly children: ReadonlyArray<Node>;
   readonly created_at: Maybe<Scalars['Date']>;
-  readonly created_by: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly featured_image: Contentstack_assets;
   readonly id: Scalars['ID'];
@@ -964,7 +936,6 @@ type Contentstack_blog_post = Node & {
   readonly type: Maybe<Scalars['String']>;
   readonly uid: Maybe<Scalars['String']>;
   readonly updated_at: Maybe<Scalars['Date']>;
-  readonly updated_by: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
 };
 
@@ -1038,9 +1009,7 @@ type Contentstack_blog_postEdge = {
 };
 
 type Contentstack_blog_postFieldsEnum =
-  | '_version'
   | 'author'
-  | 'author._version'
   | 'author.bio'
   | 'author.children'
   | 'author.children.children'
@@ -1059,7 +1028,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'author.children.parent.children'
   | 'author.children.parent.id'
   | 'author.created_at'
-  | 'author.created_by'
   | 'author.id'
   | 'author.internal.content'
   | 'author.internal.contentDigest'
@@ -1122,14 +1090,10 @@ type Contentstack_blog_postFieldsEnum =
   | 'author.picture.updated_at'
   | 'author.picture.updated_by'
   | 'author.picture.url'
-  | 'author.publish_details.environment'
   | 'author.publish_details.locale'
-  | 'author.publish_details.time'
-  | 'author.publish_details.user'
   | 'author.title'
   | 'author.uid'
   | 'author.updated_at'
-  | 'author.updated_by'
   | 'body'
   | 'children'
   | 'children.children'
@@ -1174,7 +1138,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'children.parent.parent.children'
   | 'children.parent.parent.id'
   | 'created_at'
-  | 'created_by'
   | 'date'
   | 'featured_image._version'
   | 'featured_image.children'
@@ -1291,20 +1254,14 @@ type Contentstack_blog_postFieldsEnum =
   | 'parent.parent.internal.type'
   | 'parent.parent.parent.children'
   | 'parent.parent.parent.id'
-  | 'publish_details.environment'
   | 'publish_details.locale'
-  | 'publish_details.time'
-  | 'publish_details.user'
   | 'related_post'
-  | 'related_post._version'
   | 'related_post.author'
-  | 'related_post.author._version'
   | 'related_post.author.bio'
   | 'related_post.author.children'
   | 'related_post.author.children.children'
   | 'related_post.author.children.id'
   | 'related_post.author.created_at'
-  | 'related_post.author.created_by'
   | 'related_post.author.id'
   | 'related_post.author.internal.content'
   | 'related_post.author.internal.contentDigest'
@@ -1335,14 +1292,10 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.author.picture.updated_at'
   | 'related_post.author.picture.updated_by'
   | 'related_post.author.picture.url'
-  | 'related_post.author.publish_details.environment'
   | 'related_post.author.publish_details.locale'
-  | 'related_post.author.publish_details.time'
-  | 'related_post.author.publish_details.user'
   | 'related_post.author.title'
   | 'related_post.author.uid'
   | 'related_post.author.updated_at'
-  | 'related_post.author.updated_by'
   | 'related_post.body'
   | 'related_post.children'
   | 'related_post.children.children'
@@ -1361,7 +1314,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.children.parent.children'
   | 'related_post.children.parent.id'
   | 'related_post.created_at'
-  | 'related_post.created_by'
   | 'related_post.date'
   | 'related_post.featured_image._version'
   | 'related_post.featured_image.children'
@@ -1426,30 +1378,22 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.parent.internal.type'
   | 'related_post.parent.parent.children'
   | 'related_post.parent.parent.id'
-  | 'related_post.publish_details.environment'
   | 'related_post.publish_details.locale'
-  | 'related_post.publish_details.time'
-  | 'related_post.publish_details.user'
   | 'related_post.related_post'
-  | 'related_post.related_post._version'
   | 'related_post.related_post.author'
-  | 'related_post.related_post.author._version'
   | 'related_post.related_post.author.bio'
   | 'related_post.related_post.author.children'
   | 'related_post.related_post.author.created_at'
-  | 'related_post.related_post.author.created_by'
   | 'related_post.related_post.author.id'
   | 'related_post.related_post.author.locale'
   | 'related_post.related_post.author.title'
   | 'related_post.related_post.author.uid'
   | 'related_post.related_post.author.updated_at'
-  | 'related_post.related_post.author.updated_by'
   | 'related_post.related_post.body'
   | 'related_post.related_post.children'
   | 'related_post.related_post.children.children'
   | 'related_post.related_post.children.id'
   | 'related_post.related_post.created_at'
-  | 'related_post.related_post.created_by'
   | 'related_post.related_post.date'
   | 'related_post.related_post.featured_image._version'
   | 'related_post.related_post.featured_image.children'
@@ -1482,17 +1426,12 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.related_post.locale'
   | 'related_post.related_post.parent.children'
   | 'related_post.related_post.parent.id'
-  | 'related_post.related_post.publish_details.environment'
   | 'related_post.related_post.publish_details.locale'
-  | 'related_post.related_post.publish_details.time'
-  | 'related_post.related_post.publish_details.user'
   | 'related_post.related_post.related_post'
-  | 'related_post.related_post.related_post._version'
   | 'related_post.related_post.related_post.author'
   | 'related_post.related_post.related_post.body'
   | 'related_post.related_post.related_post.children'
   | 'related_post.related_post.related_post.created_at'
-  | 'related_post.related_post.related_post.created_by'
   | 'related_post.related_post.related_post.date'
   | 'related_post.related_post.related_post.id'
   | 'related_post.related_post.related_post.is_archived'
@@ -1502,7 +1441,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.related_post.related_post.type'
   | 'related_post.related_post.related_post.uid'
   | 'related_post.related_post.related_post.updated_at'
-  | 'related_post.related_post.related_post.updated_by'
   | 'related_post.related_post.related_post.url'
   | 'related_post.related_post.seo.enable_search_indexing'
   | 'related_post.related_post.seo.keywords'
@@ -1512,7 +1450,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.related_post.type'
   | 'related_post.related_post.uid'
   | 'related_post.related_post.updated_at'
-  | 'related_post.related_post.updated_by'
   | 'related_post.related_post.url'
   | 'related_post.seo.enable_search_indexing'
   | 'related_post.seo.keywords'
@@ -1522,7 +1459,6 @@ type Contentstack_blog_postFieldsEnum =
   | 'related_post.type'
   | 'related_post.uid'
   | 'related_post.updated_at'
-  | 'related_post.updated_by'
   | 'related_post.url'
   | 'seo.enable_search_indexing'
   | 'seo.keywords'
@@ -1532,16 +1468,13 @@ type Contentstack_blog_postFieldsEnum =
   | 'type'
   | 'uid'
   | 'updated_at'
-  | 'updated_by'
   | 'url';
 
 type Contentstack_blog_postFilterInput = {
-  readonly _version: InputMaybe<IntQueryOperatorInput>;
   readonly author: InputMaybe<Contentstack_authorFilterListInput>;
   readonly body: InputMaybe<JSONQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly created_at: InputMaybe<DateQueryOperatorInput>;
-  readonly created_by: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly featured_image: InputMaybe<Contentstack_assetsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -1556,7 +1489,6 @@ type Contentstack_blog_postFilterInput = {
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly updated_at: InputMaybe<DateQueryOperatorInput>;
-  readonly updated_by: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -1611,25 +1543,11 @@ type Contentstack_blog_postSortInput = {
 };
 
 type Contentstack_blog_post_publish_details = {
-  readonly environment: Maybe<Scalars['String']>;
   readonly locale: Maybe<Scalars['String']>;
-  readonly time: Maybe<Scalars['Date']>;
-  readonly user: Maybe<Scalars['String']>;
-};
-
-
-type Contentstack_blog_post_publish_details_timeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type Contentstack_blog_post_publish_detailsFilterInput = {
-  readonly environment: InputMaybe<StringQueryOperatorInput>;
   readonly locale: InputMaybe<StringQueryOperatorInput>;
-  readonly time: InputMaybe<DateQueryOperatorInput>;
-  readonly user: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_blog_post_seo = {
@@ -1648,16 +1566,21 @@ type Contentstack_blog_post_seoFilterInput = {
 
 type Contentstack_footer = Node & {
   readonly _version: Maybe<Scalars['Int']>;
+  readonly about_us: Maybe<Contentstack_footer_about_us>;
   readonly children: ReadonlyArray<Node>;
   readonly copyright: Maybe<Scalars['JSON']>;
   readonly created_at: Maybe<Scalars['Date']>;
   readonly created_by: Maybe<Scalars['String']>;
+  readonly delivery: Maybe<Contentstack_footer_delivery>;
+  readonly download_app: Maybe<ReadonlyArray<Maybe<Contentstack_footer_download_app>>>;
+  readonly help: Maybe<Contentstack_footer_help>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly locale: Maybe<Scalars['String']>;
   readonly logo: Contentstack_assets;
-  readonly navigation: Maybe<Contentstack_footer_navigation>;
+  readonly my_account: Maybe<Contentstack_footer_my_account>;
   readonly parent: Maybe<Node>;
+  readonly pay_by: Maybe<ReadonlyArray<Maybe<Contentstack_footer_pay_by>>>;
   readonly policies: Maybe<Contentstack_footer_policies>;
   readonly publish_details: Maybe<Contentstack_footer_publish_details>;
   readonly social: Maybe<Contentstack_footer_social>;
@@ -1730,6 +1653,9 @@ type Contentstack_footerEdge = {
 
 type Contentstack_footerFieldsEnum =
   | '_version'
+  | 'about_us.link'
+  | 'about_us.link.href'
+  | 'about_us.link.title'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -1775,6 +1701,51 @@ type Contentstack_footerFieldsEnum =
   | 'copyright'
   | 'created_at'
   | 'created_by'
+  | 'delivery.link'
+  | 'delivery.link.href'
+  | 'delivery.link.title'
+  | 'download_app'
+  | 'download_app.icon._version'
+  | 'download_app.icon.children'
+  | 'download_app.icon.children.children'
+  | 'download_app.icon.children.id'
+  | 'download_app.icon.content_type'
+  | 'download_app.icon.created_at'
+  | 'download_app.icon.created_by'
+  | 'download_app.icon.description'
+  | 'download_app.icon.dimension.height'
+  | 'download_app.icon.dimension.width'
+  | 'download_app.icon.file_size'
+  | 'download_app.icon.filename'
+  | 'download_app.icon.gatsbyImageData'
+  | 'download_app.icon.id'
+  | 'download_app.icon.internal.content'
+  | 'download_app.icon.internal.contentDigest'
+  | 'download_app.icon.internal.contentFilePath'
+  | 'download_app.icon.internal.description'
+  | 'download_app.icon.internal.fieldOwners'
+  | 'download_app.icon.internal.ignoreType'
+  | 'download_app.icon.internal.mediaType'
+  | 'download_app.icon.internal.owner'
+  | 'download_app.icon.internal.type'
+  | 'download_app.icon.is_dir'
+  | 'download_app.icon.parent.children'
+  | 'download_app.icon.parent.id'
+  | 'download_app.icon.parent_uid'
+  | 'download_app.icon.publish_details.environment'
+  | 'download_app.icon.publish_details.locale'
+  | 'download_app.icon.publish_details.time'
+  | 'download_app.icon.publish_details.user'
+  | 'download_app.icon.title'
+  | 'download_app.icon.uid'
+  | 'download_app.icon.updated_at'
+  | 'download_app.icon.updated_by'
+  | 'download_app.icon.url'
+  | 'download_app.link.href'
+  | 'download_app.link.title'
+  | 'help.link'
+  | 'help.link.href'
+  | 'help.link.title'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -1848,10 +1819,9 @@ type Contentstack_footerFieldsEnum =
   | 'logo.updated_at'
   | 'logo.updated_by'
   | 'logo.url'
-  | 'navigation.link'
-  | 'navigation.link.href'
-  | 'navigation.link.title'
-  | 'navigation.link.uuid'
+  | 'my_account.link'
+  | 'my_account.link.href'
+  | 'my_account.link.title'
   | 'parent.children'
   | 'parent.children.children'
   | 'parent.children.children.children'
@@ -1893,10 +1863,48 @@ type Contentstack_footerFieldsEnum =
   | 'parent.parent.internal.type'
   | 'parent.parent.parent.children'
   | 'parent.parent.parent.id'
+  | 'pay_by'
+  | 'pay_by.icon._version'
+  | 'pay_by.icon.children'
+  | 'pay_by.icon.children.children'
+  | 'pay_by.icon.children.id'
+  | 'pay_by.icon.content_type'
+  | 'pay_by.icon.created_at'
+  | 'pay_by.icon.created_by'
+  | 'pay_by.icon.description'
+  | 'pay_by.icon.dimension.height'
+  | 'pay_by.icon.dimension.width'
+  | 'pay_by.icon.file_size'
+  | 'pay_by.icon.filename'
+  | 'pay_by.icon.gatsbyImageData'
+  | 'pay_by.icon.id'
+  | 'pay_by.icon.internal.content'
+  | 'pay_by.icon.internal.contentDigest'
+  | 'pay_by.icon.internal.contentFilePath'
+  | 'pay_by.icon.internal.description'
+  | 'pay_by.icon.internal.fieldOwners'
+  | 'pay_by.icon.internal.ignoreType'
+  | 'pay_by.icon.internal.mediaType'
+  | 'pay_by.icon.internal.owner'
+  | 'pay_by.icon.internal.type'
+  | 'pay_by.icon.is_dir'
+  | 'pay_by.icon.parent.children'
+  | 'pay_by.icon.parent.id'
+  | 'pay_by.icon.parent_uid'
+  | 'pay_by.icon.publish_details.environment'
+  | 'pay_by.icon.publish_details.locale'
+  | 'pay_by.icon.publish_details.time'
+  | 'pay_by.icon.publish_details.user'
+  | 'pay_by.icon.title'
+  | 'pay_by.icon.uid'
+  | 'pay_by.icon.updated_at'
+  | 'pay_by.icon.updated_by'
+  | 'pay_by.icon.url'
+  | 'pay_by.link.href'
+  | 'pay_by.link.title'
   | 'policies.link'
   | 'policies.link.href'
   | 'policies.link.title'
-  | 'policies.link.uuid'
   | 'publish_details.environment'
   | 'publish_details.locale'
   | 'publish_details.time'
@@ -1921,7 +1929,6 @@ type Contentstack_footerFieldsEnum =
   | 'social.social_share.icon.url'
   | 'social.social_share.link.href'
   | 'social.social_share.link.title'
-  | 'social.social_share.link.uuid'
   | 'title'
   | 'uid'
   | 'updated_at'
@@ -1929,16 +1936,21 @@ type Contentstack_footerFieldsEnum =
 
 type Contentstack_footerFilterInput = {
   readonly _version: InputMaybe<IntQueryOperatorInput>;
+  readonly about_us: InputMaybe<Contentstack_footer_about_usFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly copyright: InputMaybe<JSONQueryOperatorInput>;
   readonly created_at: InputMaybe<DateQueryOperatorInput>;
   readonly created_by: InputMaybe<StringQueryOperatorInput>;
+  readonly delivery: InputMaybe<Contentstack_footer_deliveryFilterInput>;
+  readonly download_app: InputMaybe<Contentstack_footer_download_appFilterListInput>;
+  readonly help: InputMaybe<Contentstack_footer_helpFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly locale: InputMaybe<StringQueryOperatorInput>;
   readonly logo: InputMaybe<Contentstack_assetsFilterInput>;
-  readonly navigation: InputMaybe<Contentstack_footer_navigationFilterInput>;
+  readonly my_account: InputMaybe<Contentstack_footer_my_accountFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pay_by: InputMaybe<Contentstack_footer_pay_byFilterListInput>;
   readonly policies: InputMaybe<Contentstack_footer_policiesFilterInput>;
   readonly publish_details: InputMaybe<Contentstack_footer_publish_detailsFilterInput>;
   readonly social: InputMaybe<Contentstack_footer_socialFilterInput>;
@@ -1994,12 +2006,64 @@ type Contentstack_footerSortInput = {
   readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
-type Contentstack_footer_navigation = {
+type Contentstack_footer_about_us = {
   readonly link: Maybe<ReadonlyArray<Maybe<linktype>>>;
 };
 
-type Contentstack_footer_navigationFilterInput = {
+type Contentstack_footer_about_usFilterInput = {
   readonly link: InputMaybe<linktypeFilterListInput>;
+};
+
+type Contentstack_footer_delivery = {
+  readonly link: Maybe<ReadonlyArray<Maybe<linktype>>>;
+};
+
+type Contentstack_footer_deliveryFilterInput = {
+  readonly link: InputMaybe<linktypeFilterListInput>;
+};
+
+type Contentstack_footer_download_app = {
+  readonly icon: Maybe<Contentstack_assets>;
+  readonly link: Maybe<linktype>;
+};
+
+type Contentstack_footer_download_appFilterInput = {
+  readonly icon: InputMaybe<Contentstack_assetsFilterInput>;
+  readonly link: InputMaybe<linktypeFilterInput>;
+};
+
+type Contentstack_footer_download_appFilterListInput = {
+  readonly elemMatch: InputMaybe<Contentstack_footer_download_appFilterInput>;
+};
+
+type Contentstack_footer_help = {
+  readonly link: Maybe<ReadonlyArray<Maybe<linktype>>>;
+};
+
+type Contentstack_footer_helpFilterInput = {
+  readonly link: InputMaybe<linktypeFilterListInput>;
+};
+
+type Contentstack_footer_my_account = {
+  readonly link: Maybe<ReadonlyArray<Maybe<linktype>>>;
+};
+
+type Contentstack_footer_my_accountFilterInput = {
+  readonly link: InputMaybe<linktypeFilterListInput>;
+};
+
+type Contentstack_footer_pay_by = {
+  readonly icon: Maybe<Contentstack_assets>;
+  readonly link: Maybe<linktype>;
+};
+
+type Contentstack_footer_pay_byFilterInput = {
+  readonly icon: InputMaybe<Contentstack_assetsFilterInput>;
+  readonly link: InputMaybe<linktypeFilterInput>;
+};
+
+type Contentstack_footer_pay_byFilterListInput = {
+  readonly elemMatch: InputMaybe<Contentstack_footer_pay_byFilterInput>;
 };
 
 type Contentstack_footer_policies = {
@@ -2831,11 +2895,9 @@ type Contentstack_header_secondary_menuFilterListInput = {
 };
 
 type Contentstack_news_and_insights = Node & {
-  readonly _version: Maybe<Scalars['Int']>;
   readonly body: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly created_at: Maybe<Scalars['Date']>;
-  readonly created_by: Maybe<Scalars['String']>;
   readonly featured_image: Contentstack_assets;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
@@ -2846,7 +2908,6 @@ type Contentstack_news_and_insights = Node & {
   readonly type: Maybe<Scalars['String']>;
   readonly uid: Maybe<Scalars['String']>;
   readonly updated_at: Maybe<Scalars['Date']>;
-  readonly updated_by: Maybe<Scalars['String']>;
 };
 
 
@@ -2911,7 +2972,6 @@ type Contentstack_news_and_insightsEdge = {
 };
 
 type Contentstack_news_and_insightsFieldsEnum =
-  | '_version'
   | 'body'
   | 'children'
   | 'children.children'
@@ -2956,7 +3016,6 @@ type Contentstack_news_and_insightsFieldsEnum =
   | 'children.parent.parent.children'
   | 'children.parent.parent.id'
   | 'created_at'
-  | 'created_by'
   | 'featured_image._version'
   | 'featured_image.children'
   | 'featured_image.children.children'
@@ -3071,22 +3130,16 @@ type Contentstack_news_and_insightsFieldsEnum =
   | 'parent.parent.internal.type'
   | 'parent.parent.parent.children'
   | 'parent.parent.parent.id'
-  | 'publish_details.environment'
   | 'publish_details.locale'
-  | 'publish_details.time'
-  | 'publish_details.user'
   | 'title'
   | 'type'
   | 'uid'
-  | 'updated_at'
-  | 'updated_by';
+  | 'updated_at';
 
 type Contentstack_news_and_insightsFilterInput = {
-  readonly _version: InputMaybe<IntQueryOperatorInput>;
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly created_at: InputMaybe<DateQueryOperatorInput>;
-  readonly created_by: InputMaybe<StringQueryOperatorInput>;
   readonly featured_image: InputMaybe<Contentstack_assetsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -3097,7 +3150,6 @@ type Contentstack_news_and_insightsFilterInput = {
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly updated_at: InputMaybe<DateQueryOperatorInput>;
-  readonly updated_by: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_news_and_insightsGroupConnection = {
@@ -3147,25 +3199,11 @@ type Contentstack_news_and_insightsSortInput = {
 };
 
 type Contentstack_news_and_insights_publish_details = {
-  readonly environment: Maybe<Scalars['String']>;
   readonly locale: Maybe<Scalars['String']>;
-  readonly time: Maybe<Scalars['Date']>;
-  readonly user: Maybe<Scalars['String']>;
-};
-
-
-type Contentstack_news_and_insights_publish_details_timeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type Contentstack_news_and_insights_publish_detailsFilterInput = {
-  readonly environment: InputMaybe<StringQueryOperatorInput>;
   readonly locale: InputMaybe<StringQueryOperatorInput>;
-  readonly time: InputMaybe<DateQueryOperatorInput>;
-  readonly user: InputMaybe<StringQueryOperatorInput>;
 };
 
 type Contentstack_page = Node & {
@@ -3307,12 +3345,10 @@ type Contentstack_pageFieldsEnum =
   | 'locale'
   | 'page_components'
   | 'page_components.cards_slider.cards'
-  | 'page_components.cards_slider.cards._version'
   | 'page_components.cards_slider.cards.author'
   | 'page_components.cards_slider.cards.body'
   | 'page_components.cards_slider.cards.children'
   | 'page_components.cards_slider.cards.created_at'
-  | 'page_components.cards_slider.cards.created_by'
   | 'page_components.cards_slider.cards.date'
   | 'page_components.cards_slider.cards.id'
   | 'page_components.cards_slider.cards.is_archived'
@@ -3322,11 +3358,9 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.cards_slider.cards.type'
   | 'page_components.cards_slider.cards.uid'
   | 'page_components.cards_slider.cards.updated_at'
-  | 'page_components.cards_slider.cards.updated_by'
   | 'page_components.cards_slider.cards.url'
   | 'page_components.cards_slider.jump_to_link.href'
   | 'page_components.cards_slider.jump_to_link.title'
-  | 'page_components.cards_slider.jump_to_link.uuid'
   | 'page_components.cards_slider.title'
   | 'page_components.contact_details.address'
   | 'page_components.contact_details.email'
@@ -3338,12 +3372,10 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.enquiry_block.cta.url'
   | 'page_components.enquiry_block.title'
   | 'page_components.from_blog.featured_blogs'
-  | 'page_components.from_blog.featured_blogs._version'
   | 'page_components.from_blog.featured_blogs.author'
   | 'page_components.from_blog.featured_blogs.body'
   | 'page_components.from_blog.featured_blogs.children'
   | 'page_components.from_blog.featured_blogs.created_at'
-  | 'page_components.from_blog.featured_blogs.created_by'
   | 'page_components.from_blog.featured_blogs.date'
   | 'page_components.from_blog.featured_blogs.id'
   | 'page_components.from_blog.featured_blogs.is_archived'
@@ -3353,12 +3385,10 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.from_blog.featured_blogs.type'
   | 'page_components.from_blog.featured_blogs.uid'
   | 'page_components.from_blog.featured_blogs.updated_at'
-  | 'page_components.from_blog.featured_blogs.updated_by'
   | 'page_components.from_blog.featured_blogs.url'
   | 'page_components.from_blog.title_h2'
   | 'page_components.from_blog.view_articles.href'
   | 'page_components.from_blog.view_articles.title'
-  | 'page_components.from_blog.view_articles.uuid'
   | 'page_components.hero_banner.banner_description'
   | 'page_components.hero_banner.banner_image._version'
   | 'page_components.hero_banner.banner_image.children'
@@ -3381,19 +3411,19 @@ type Contentstack_pageFieldsEnum =
   | 'page_components.hero_banner.bg_color'
   | 'page_components.hero_banner.call_to_action.href'
   | 'page_components.hero_banner.call_to_action.title'
-  | 'page_components.hero_banner.call_to_action.uuid'
   | 'page_components.hero_banner.text_color'
   | 'page_components.our_team.description'
   | 'page_components.our_team.employees'
   | 'page_components.our_team.employees.designation'
   | 'page_components.our_team.employees.name'
   | 'page_components.our_team.title_h2'
+  | 'page_components.product_category.product_category'
+  | 'page_components.product_etc.custom'
   | 'page_components.products.products'
   | 'page_components.section.background.gradient_end'
   | 'page_components.section.background.gradient_start'
   | 'page_components.section.call_to_action.href'
   | 'page_components.section.call_to_action.title'
-  | 'page_components.section.call_to_action.uuid'
   | 'page_components.section.description'
   | 'page_components.section.image._version'
   | 'page_components.section.image.children'
@@ -3560,6 +3590,8 @@ type Contentstack_page_page_components = {
   readonly from_blog: Maybe<Contentstack_page_page_componentsfrom_blog>;
   readonly hero_banner: Maybe<Contentstack_page_page_componentshero_banner>;
   readonly our_team: Maybe<Contentstack_page_page_componentsour_team>;
+  readonly product_category: Maybe<Contentstack_page_page_componentsproduct_category>;
+  readonly product_etc: Maybe<Contentstack_page_page_componentsproduct_etc>;
   readonly products: Maybe<Contentstack_page_page_componentsproducts>;
   readonly section: Maybe<Contentstack_page_page_componentssection>;
   readonly section_with_buckets: Maybe<Contentstack_page_page_componentssection_with_buckets>;
@@ -3575,6 +3607,8 @@ type Contentstack_page_page_componentsFilterInput = {
   readonly from_blog: InputMaybe<Contentstack_page_page_componentsfrom_blogFilterInput>;
   readonly hero_banner: InputMaybe<Contentstack_page_page_componentshero_bannerFilterInput>;
   readonly our_team: InputMaybe<Contentstack_page_page_componentsour_teamFilterInput>;
+  readonly product_category: InputMaybe<Contentstack_page_page_componentsproduct_categoryFilterInput>;
+  readonly product_etc: InputMaybe<Contentstack_page_page_componentsproduct_etcFilterInput>;
   readonly products: InputMaybe<Contentstack_page_page_componentsproductsFilterInput>;
   readonly section: InputMaybe<Contentstack_page_page_componentssectionFilterInput>;
   readonly section_with_buckets: InputMaybe<Contentstack_page_page_componentssection_with_bucketsFilterInput>;
@@ -3701,6 +3735,22 @@ type Contentstack_page_page_componentsour_team_employeesFilterInput = {
 
 type Contentstack_page_page_componentsour_team_employeesFilterListInput = {
   readonly elemMatch: InputMaybe<Contentstack_page_page_componentsour_team_employeesFilterInput>;
+};
+
+type Contentstack_page_page_componentsproduct_category = {
+  readonly product_category: Maybe<Scalars['JSON']>;
+};
+
+type Contentstack_page_page_componentsproduct_categoryFilterInput = {
+  readonly product_category: InputMaybe<JSONQueryOperatorInput>;
+};
+
+type Contentstack_page_page_componentsproduct_etc = {
+  readonly custom: Maybe<Scalars['JSON']>;
+};
+
+type Contentstack_page_page_componentsproduct_etcFilterInput = {
+  readonly custom: InputMaybe<JSONQueryOperatorInput>;
 };
 
 type Contentstack_page_page_componentsproducts = {
@@ -3853,6 +3903,277 @@ type Contentstack_page_seoFilterInput = {
   readonly keywords: InputMaybe<StringQueryOperatorInput>;
   readonly meta_description: InputMaybe<StringQueryOperatorInput>;
   readonly meta_title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_product = Node & {
+  readonly _version: Maybe<Scalars['Int']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly created_at: Maybe<Scalars['Date']>;
+  readonly created_by: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly product: Scalars['JSON'];
+  readonly publish_details: Maybe<Contentstack_product_publish_details>;
+  readonly title: Scalars['String'];
+  readonly uid: Maybe<Scalars['String']>;
+  readonly updated_at: Maybe<Scalars['Date']>;
+  readonly updated_by: Maybe<Scalars['String']>;
+};
+
+
+type Contentstack_product_created_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type Contentstack_product_updated_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type Contentstack_productConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_productEdge>;
+  readonly group: ReadonlyArray<Contentstack_productGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_product>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_productConnection_distinctArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productConnection_groupArgs = {
+  field: Contentstack_productFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_productConnection_maxArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productConnection_minArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productConnection_sumArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+type Contentstack_productEdge = {
+  readonly next: Maybe<Contentstack_product>;
+  readonly node: Contentstack_product;
+  readonly previous: Maybe<Contentstack_product>;
+};
+
+type Contentstack_productFieldsEnum =
+  | '_version'
+  | 'children'
+  | 'children.children'
+  | 'children.children.children'
+  | 'children.children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.id'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.contentFilePath'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.children.parent.children'
+  | 'children.children.parent.id'
+  | 'children.id'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.contentFilePath'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'children.parent.children'
+  | 'children.parent.children.children'
+  | 'children.parent.children.id'
+  | 'children.parent.id'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.contentFilePath'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.parent.parent.children'
+  | 'children.parent.parent.id'
+  | 'created_at'
+  | 'created_by'
+  | 'id'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.contentFilePath'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'locale'
+  | 'parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.id'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.contentFilePath'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.children.parent.children'
+  | 'parent.children.parent.id'
+  | 'parent.id'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.contentFilePath'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'parent.parent.children'
+  | 'parent.parent.children.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.id'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.contentFilePath'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.parent.id'
+  | 'product'
+  | 'publish_details.environment'
+  | 'publish_details.locale'
+  | 'publish_details.time'
+  | 'publish_details.user'
+  | 'title'
+  | 'uid'
+  | 'updated_at'
+  | 'updated_by';
+
+type Contentstack_productFilterInput = {
+  readonly _version: InputMaybe<IntQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly created_at: InputMaybe<DateQueryOperatorInput>;
+  readonly created_by: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly product: InputMaybe<JSONQueryOperatorInput>;
+  readonly publish_details: InputMaybe<Contentstack_product_publish_detailsFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<StringQueryOperatorInput>;
+  readonly updated_at: InputMaybe<DateQueryOperatorInput>;
+  readonly updated_by: InputMaybe<StringQueryOperatorInput>;
+};
+
+type Contentstack_productGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<Contentstack_productEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<Contentstack_productGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Contentstack_product>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type Contentstack_productGroupConnection_distinctArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productGroupConnection_groupArgs = {
+  field: Contentstack_productFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type Contentstack_productGroupConnection_maxArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productGroupConnection_minArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+
+type Contentstack_productGroupConnection_sumArgs = {
+  field: Contentstack_productFieldsEnum;
+};
+
+type Contentstack_productSortInput = {
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<Contentstack_productFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+};
+
+type Contentstack_product_publish_details = {
+  readonly environment: Maybe<Scalars['String']>;
+  readonly locale: Maybe<Scalars['String']>;
+  readonly time: Maybe<Scalars['Date']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+
+type Contentstack_product_publish_details_timeArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type Contentstack_product_publish_detailsFilterInput = {
+  readonly environment: InputMaybe<StringQueryOperatorInput>;
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly time: InputMaybe<DateQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
 };
 
 type DateQueryOperatorInput = {
@@ -5341,6 +5662,7 @@ type Query = {
   readonly allContentstackHeader: Contentstack_headerConnection;
   readonly allContentstackNewsAndInsights: Contentstack_news_and_insightsConnection;
   readonly allContentstackPage: Contentstack_pageConnection;
+  readonly allContentstackProduct: Contentstack_productConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -5358,6 +5680,7 @@ type Query = {
   readonly contentstackHeader: Maybe<Contentstack_header>;
   readonly contentstackNewsAndInsights: Maybe<Contentstack_news_and_insights>;
   readonly contentstackPage: Maybe<Contentstack_page>;
+  readonly contentstackProduct: Maybe<Contentstack_product>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -5438,6 +5761,14 @@ type Query_allContentstackPageArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<Contentstack_pageSortInput>;
+};
+
+
+type Query_allContentstackProductArgs = {
+  filter: InputMaybe<Contentstack_productFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<Contentstack_productSortInput>;
 };
 
 
@@ -5531,11 +5862,9 @@ type Query_contentstackAssetsArgs = {
 
 
 type Query_contentstackAuthorArgs = {
-  _version: InputMaybe<IntQueryOperatorInput>;
   bio: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   created_at: InputMaybe<DateQueryOperatorInput>;
-  created_by: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   locale: InputMaybe<StringQueryOperatorInput>;
@@ -5545,17 +5874,14 @@ type Query_contentstackAuthorArgs = {
   title: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
-  updated_by: InputMaybe<StringQueryOperatorInput>;
 };
 
 
 type Query_contentstackBlogPostArgs = {
-  _version: InputMaybe<IntQueryOperatorInput>;
   author: InputMaybe<Contentstack_authorFilterListInput>;
   body: InputMaybe<JSONQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   created_at: InputMaybe<DateQueryOperatorInput>;
-  created_by: InputMaybe<StringQueryOperatorInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   featured_image: InputMaybe<Contentstack_assetsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
@@ -5570,7 +5896,6 @@ type Query_contentstackBlogPostArgs = {
   type: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
-  updated_by: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -5591,16 +5916,21 @@ type Query_contentstackContentTypesArgs = {
 
 type Query_contentstackFooterArgs = {
   _version: InputMaybe<IntQueryOperatorInput>;
+  about_us: InputMaybe<Contentstack_footer_about_usFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   copyright: InputMaybe<JSONQueryOperatorInput>;
   created_at: InputMaybe<DateQueryOperatorInput>;
   created_by: InputMaybe<StringQueryOperatorInput>;
+  delivery: InputMaybe<Contentstack_footer_deliveryFilterInput>;
+  download_app: InputMaybe<Contentstack_footer_download_appFilterListInput>;
+  help: InputMaybe<Contentstack_footer_helpFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   locale: InputMaybe<StringQueryOperatorInput>;
   logo: InputMaybe<Contentstack_assetsFilterInput>;
-  navigation: InputMaybe<Contentstack_footer_navigationFilterInput>;
+  my_account: InputMaybe<Contentstack_footer_my_accountFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
+  pay_by: InputMaybe<Contentstack_footer_pay_byFilterListInput>;
   policies: InputMaybe<Contentstack_footer_policiesFilterInput>;
   publish_details: InputMaybe<Contentstack_footer_publish_detailsFilterInput>;
   social: InputMaybe<Contentstack_footer_socialFilterInput>;
@@ -5650,11 +5980,9 @@ type Query_contentstackHeaderArgs = {
 
 
 type Query_contentstackNewsAndInsightsArgs = {
-  _version: InputMaybe<IntQueryOperatorInput>;
   body: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   created_at: InputMaybe<DateQueryOperatorInput>;
-  created_by: InputMaybe<StringQueryOperatorInput>;
   featured_image: InputMaybe<Contentstack_assetsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -5665,7 +5993,6 @@ type Query_contentstackNewsAndInsightsArgs = {
   type: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<StringQueryOperatorInput>;
   updated_at: InputMaybe<DateQueryOperatorInput>;
-  updated_by: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -5686,6 +6013,24 @@ type Query_contentstackPageArgs = {
   updated_at: InputMaybe<DateQueryOperatorInput>;
   updated_by: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_contentstackProductArgs = {
+  _version: InputMaybe<IntQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  created_at: InputMaybe<DateQueryOperatorInput>;
+  created_by: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  product: InputMaybe<JSONQueryOperatorInput>;
+  publish_details: InputMaybe<Contentstack_product_publish_detailsFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  uid: InputMaybe<StringQueryOperatorInput>;
+  updated_at: InputMaybe<DateQueryOperatorInput>;
+  updated_by: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -7072,13 +7417,11 @@ type WebPOptions = {
 type linktype = {
   readonly href: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
-  readonly uuid: Maybe<Scalars['Int']>;
 };
 
 type linktypeFilterInput = {
   readonly href: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly uuid: InputMaybe<IntQueryOperatorInput>;
 };
 
 type linktypeFilterListInput = {
