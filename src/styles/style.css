@@ -2,6 +2,7 @@
 @import "./tool-tip.css";
 @import "./header.css";
 @import "./products.css";
+@import "./tabs.css";
 
 :root {
   --primary-color: #0073ae;
@@ -49,7 +50,7 @@ body a {
 }
 
 body p {
-  color: #444444;
+  color: #000000;
 }
 
 .max-width {
@@ -102,7 +103,6 @@ header nav li a.active {
 }
 
 footer {
-  margin-top: 75px;
   border: 2px solid #e3e5e6;
   color: #000;
 }
@@ -1313,7 +1313,7 @@ footer .policies {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   body p {
-    color: #444444;
+    color: #000000;
   }
 
   .content-section {

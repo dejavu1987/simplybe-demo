@@ -13,6 +13,7 @@ import { Component } from "../typescript/component"
 import { Link } from "gatsby"
 import CardsSlider from "./CardsSlider"
 import Products from "./Products"
+import Product from "./Product"
 
 const RenderComponents = ({
   components,

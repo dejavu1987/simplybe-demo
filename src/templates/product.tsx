@@ -6,6 +6,8 @@ import { useLocation } from "@reach/router"
 import { onEntryChange } from "../live-preview-sdk"
 import { getPageRes, jsonToHtmlParse } from "../helper"
 import { useDevTool } from "../components/DevTools"
+import Product from "../components/Product"
+import RenderComponents from "../components/RenderComponents"
 
 const ProductTemplate = ({ data: { contentstackProduct } }: any) => {
   const { pathname } = useLocation()
@@ -33,8 +35,7 @@ const ProductTemplate = ({ data: { contentstackProduct } }: any) => {
   return (
     <Layout>
       <SEO title={getEntry.title} />
-      <h1 className="about">{getEntry.title}</h1>
-      {JSON.stringify(getEntry)}
+      <Product data={getEntry.product.data[0]} />
     </Layout>
   )
 }

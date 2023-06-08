@@ -13,16 +13,18 @@ const Products = ({ data }: ProductProps) => {
         {data.products.products.data.map((product, index) => {
           return (
             <div className="product">
-              <img src={Dress} alt={product.values.Product_name[0].data} />
-              <div className="product-details">
-                <p className="product-price">
-                  {product.values.price &&
-                    product.values.price[0].data[0].amount}
-                </p>
-                <p className="product-name">
-                  {product.values.Product_name[0].data}
-                </p>
-              </div>
+              <a href="/product/ditsy-print-waffle-ruched-front-tea-dress">
+                <img src={Dress} alt={product.values.Product_name[0].data} />
+                <div className="product-details">
+                  <p className="product-price">
+                    {product.values.price &&
+                      product.values.price[0].data[0].amount}
+                  </p>
+                  <p className="product-name">
+                    {product.values.Product_name[0].data}
+                  </p>
+                </div>
+              </a>
             </div>
           )
         })}

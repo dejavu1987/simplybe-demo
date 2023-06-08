@@ -1,0 +1,135 @@
+.product-tabs {
+    background-color: hsla(0,0%,97%,.5);
+}
+
+.tab-holder > div {
+    background-color: #fff;
+}
+
+.tabs .nav li{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.tabs .nav li .wrapper{
+    padding: 2.8125rem 2.8125rem 2.0625rem;
+}
+
+.tabs .nav li p {
+    margin-bottom : 0.2rem;
+}
+
+.tabs .nav li .title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+.tabs .nav li:first-child {
+    padding: 0 0 0 24rem;
+}
+
+.tabs .nav li.active{
+    font-weight: bold;
+    background-color: #fff;
+    border-right: 1px solid #e3e5e6;
+}
+
+.tabs .nav li.active .wrapper{
+    border-bottom: 3px solid #dec3b3;
+}
+
+.tabs .nav li .title, .tabs .nav li.active p {
+    color: #3f4952;
+}
+
+.tabs .nav li.active .title, .tabs .nav li.active p {
+    color: #000;
+}
+
+.delivery-returns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delivery-returns .delivery, .delivery-returns .returns {
+    flex-basis: 45%;
+}
+
+.tab-content {
+    padding: 6rem 24rem;
+}
+
+.tab-content h3 {
+    font-size: 1.25rem;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+.tab-content p {
+    font-size: 1rem;
+    color: #000;
+    font-weight: 400;
+}
+
+.fabric_and_care {
+    display: flex;
+    justify-content: space-between;
+}
+.fabric_and_care .description{
+    flex-basis: 45%;
+}
+.fabric_and_care .care_instructions{
+    flex-basis: 45%;
+    padding: 3rem 0 0 5rem;
+}
+
+.delivery-returns {
+    font-size: 1rem;
+}
+
+.delivery-returns h3 img {
+    margin-right: 1rem;
+}
+
+.delivery-returns .annual{
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.delivery-returns .annual img {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+}
+.delivery-returns .annual .unlimited p{
+    margin-bottom: 0;
+}
+.delivery-returns .annual .unlimited a{
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.delivery-returns .annual .taglin{
+    font-size: 0.7rem;
+}
+
+.shipping-type {
+    margin-top: 1rem;
+    border-bottom: 1px solid #e3e5e6;
+}
+
+.shipping-type h4 {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.delivery-info  {
+    margin-top: 3rem;
+}
+
+.delivery-returns .returns h4 {
+    font-weight: bold;
+}
